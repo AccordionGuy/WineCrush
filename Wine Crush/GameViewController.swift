@@ -67,8 +67,6 @@ class GameViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    
-    
     // Configure the view.
     let skView = view as! SKView
     skView.multipleTouchEnabled = false
@@ -77,24 +75,28 @@ class GameViewController: UIViewController {
     scene = GameScene(size: skView.bounds.size)
     scene.scaleMode = .AspectFill
     
+    // Present the scene.
+    skView.presentScene(scene)
+    beginGame()
+  }
+  
+  func beginGame() {
     // Hide the end of play panel from the screen.
     noticePanel.hidden = true
     
     shuffleButton.enabled = false
     hintButton.enabled = false
     
-    // Present the scene.
-    skView.presentScene(scene)
-    
     // Load and start background music.
     backgroundMusic.play()
     
     // Let's start the game!
     gameScore = 0
-    beginGame()
+    levelNumber = 1
+    beginLevel()
   }
 
-  func beginGame() {
+  func beginLevel() {
     
     scene.runAction(SKAction.waitForDuration(2.0))
     
@@ -115,7 +117,7 @@ class GameViewController: UIViewController {
     delay(4.0) {
       self.scene.addTiles()
       self.scene.swipeHandler = self.handleSwipe
-      self.scene.animateBeginGame() {
+      self.scene.animateBeginLevel() {
         self.shuffleButton.enabled = true
         self.hintButton.enabled = true
       }
@@ -246,7 +248,7 @@ class GameViewController: UIViewController {
         self.endGame()
       }
       else {
-        self.startNextLevel()
+        self.increaseLevel()
       }
     }
   }
@@ -274,7 +276,7 @@ class GameViewController: UIViewController {
     }
   }
   
-  func startNextLevel() {
+  func increaseLevel() {
     noticePanel.hidden = true
     scene.userInteractionEnabled = true
     
@@ -282,14 +284,15 @@ class GameViewController: UIViewController {
     if levelNumber > 4 {
       levelNumber = 0
     }
-    beginGame()
+    beginLevel()
   }
 
   func endGame() {
     noticePanel.hidden = true
-    scene.userInteractionEnabled = false
-    backgroundMusic.stop()
-//    switchingViewController.switchViews()
+//    scene.userInteractionEnabled = false
+//    backgroundMusic.stop()
+
+    beginGame()
   }
   
 
@@ -315,7 +318,6 @@ class GameViewController: UIViewController {
   }
   
   @IBAction func quitButtonPressed(_: AnyObject) {
-    view.userInteractionEnabled = false
     let alertController = UIAlertController(
       title: "Quit the game?",
       message: "Are you sure you want to quit playing?",
@@ -323,6 +325,8 @@ class GameViewController: UIViewController {
     let quitAction = UIAlertAction(
       title: "Yes, I'm done playing.",
       style: .Destructive) { (action: UIAlertAction!) in
+        self.scene.tilesLayer.removeAllChildren()
+        self.scene.removeAllCookieSprites()
         self.endGame()
     }
     let cancelAction = UIAlertAction(

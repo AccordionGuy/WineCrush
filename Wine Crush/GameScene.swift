@@ -471,7 +471,7 @@ class GameScene: SKScene {
     gameLayer.runAction(action, completion: completion)
   }
 
-  func animateBeginGame(completion: () -> ()) {
+  func animateBeginLevel(completion: () -> ()) {
     gameLayer.hidden = false
     gameLayer.position = CGPoint(x: 0, y: size.height)
     let action = SKAction.moveBy(CGVector(dx: 0, dy: -size.height), duration: 0.3)

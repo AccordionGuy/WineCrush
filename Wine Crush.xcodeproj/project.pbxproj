@@ -21,7 +21,6 @@
 		D4552DF51C8236A300F003D0 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4552DF41C8236A300F003D0 /* Tile.swift */; };
 		D4552DF91C82375F00F003D0 /* Grid.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D4552DF61C82375F00F003D0 /* Grid.atlas */; };
 		D4552DFA1C82375F00F003D0 /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D4552DF71C82375F00F003D0 /* Sprites.atlas */; };
-		D4552DFB1C82375F00F003D0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4552DF81C82375F00F003D0 /* Images.xcassets */; };
 		D4552E191C82379500F003D0 /* Level_1.json in Resources */ = {isa = PBXBuildFile; fileRef = D4552DFD1C82379500F003D0 /* Level_1.json */; };
 		D4552E1A1C82379500F003D0 /* Level_10.json in Resources */ = {isa = PBXBuildFile; fileRef = D4552DFE1C82379500F003D0 /* Level_10.json */; };
 		D4552E1B1C82379500F003D0 /* Level_11.json in Resources */ = {isa = PBXBuildFile; fileRef = D4552DFF1C82379500F003D0 /* Level_11.json */; };
@@ -49,6 +48,7 @@
 		D4552E311C82379500F003D0 /* Ka-Ching.wav in Resources */ = {isa = PBXBuildFile; fileRef = D4552E161C82379500F003D0 /* Ka-Ching.wav */; };
 		D4552E321C82379500F003D0 /* Mining by Moonlight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D4552E171C82379500F003D0 /* Mining by Moonlight.mp3 */; };
 		D4552E331C82379500F003D0 /* Scrape.wav in Resources */ = {isa = PBXBuildFile; fileRef = D4552E181C82379500F003D0 /* Scrape.wav */; };
+		D4FB7BB91C82A19600329EFD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4FB7BB81C82A19600329EFD /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,7 +68,6 @@
 		D4552DF41C8236A300F003D0 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		D4552DF61C82375F00F003D0 /* Grid.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Grid.atlas; sourceTree = "<group>"; };
 		D4552DF71C82375F00F003D0 /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
-		D4552DF81C82375F00F003D0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D4552DFD1C82379500F003D0 /* Level_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_1.json; sourceTree = "<group>"; };
 		D4552DFE1C82379500F003D0 /* Level_10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_10.json; sourceTree = "<group>"; };
 		D4552DFF1C82379500F003D0 /* Level_11.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_11.json; sourceTree = "<group>"; };
@@ -96,6 +95,7 @@
 		D4552E161C82379500F003D0 /* Ka-Ching.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Ka-Ching.wav"; sourceTree = "<group>"; };
 		D4552E171C82379500F003D0 /* Mining by Moonlight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mining by Moonlight.mp3"; sourceTree = "<group>"; };
 		D4552E181C82379500F003D0 /* Scrape.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Scrape.wav; sourceTree = "<group>"; };
+		D4FB7BB81C82A19600329EFD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,9 +139,9 @@
 				D4552DF21C82369900F003D0 /* Swap.swift */,
 				D4552DF41C8236A300F003D0 /* Tile.swift */,
 				D4552DD61C8234A900F003D0 /* Main.storyboard */,
+				D4FB7BB81C82A19600329EFD /* Images.xcassets */,
 				D4552DF61C82375F00F003D0 /* Grid.atlas */,
 				D4552DF71C82375F00F003D0 /* Sprites.atlas */,
-				D4552DF81C82375F00F003D0 /* Images.xcassets */,
 				D4552DFC1C82379500F003D0 /* Levels */,
 				D4552E111C82379500F003D0 /* Sounds */,
 				D4552DDB1C8234A900F003D0 /* LaunchScreen.storyboard */,
@@ -250,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4552E2E1C82379500F003D0 /* Clink.mp3 in Resources */,
+				D4FB7BB91C82A19600329EFD /* Images.xcassets in Resources */,
 				D4552E191C82379500F003D0 /* Level_1.json in Resources */,
 				D4552E2B1C82379500F003D0 /* Level_8.json in Resources */,
 				D4552E321C82379500F003D0 /* Mining by Moonlight.mp3 in Resources */,
@@ -271,7 +272,6 @@
 				D4552E2D1C82379500F003D0 /* Chomp.wav in Resources */,
 				D4552E2F1C82379500F003D0 /* Drip.wav in Resources */,
 				D4552E1F1C82379500F003D0 /* Level_15.json in Resources */,
-				D4552DFB1C82375F00F003D0 /* Images.xcassets in Resources */,
 				D4552E2C1C82379500F003D0 /* Level_9.json in Resources */,
 				D4552E251C82379500F003D0 /* Level_20.json in Resources */,
 				D4552E331C82379500F003D0 /* Scrape.wav in Resources */,
@@ -454,6 +454,7 @@
 				D4552DE31C8234A900F003D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
