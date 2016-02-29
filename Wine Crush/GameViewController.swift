@@ -94,7 +94,7 @@ class GameViewController: UIViewController {
     
     // Let's start the game!
     gameScore = 0
-    levelNumber = 1
+    levelNumber = 17
     beginLevel()
   }
 
@@ -285,8 +285,8 @@ class GameViewController: UIViewController {
     scene.userInteractionEnabled = true
     
     levelNumber += 1
-    if levelNumber > 4 {
-      levelNumber = 0
+    if levelNumber > 20 {
+      levelNumber = 1
     }
     beginLevel()
   }
