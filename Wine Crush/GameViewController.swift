@@ -12,7 +12,7 @@ import AVFoundation
 
 class GameViewController: UIViewController {
   
-//  var switchingViewController: SwitchingViewController!
+  var switchingViewController: SwitchingViewController!
   
   @IBOutlet weak var levelLabel: UILabel!
   @IBOutlet weak var movesLabel: UILabel!
@@ -77,7 +77,7 @@ class GameViewController: UIViewController {
     
     // Present the scene.
     skView.presentScene(scene)
-    beginGame()
+//    beginGame()
   }
   
   func beginGame() {
@@ -88,6 +88,8 @@ class GameViewController: UIViewController {
     hintButton.enabled = false
     
     // Load and start background music.
+    backgroundMusic.currentTime = 0.0
+    backgroundMusic.volume = 1.0
     backgroundMusic.play()
     
     // Let's start the game!
@@ -120,6 +122,7 @@ class GameViewController: UIViewController {
       self.scene.animateBeginLevel() {
         self.shuffleButton.enabled = true
         self.hintButton.enabled = true
+        self.quitButton.enabled = true
       }
       self.shuffle()
     }
@@ -240,6 +243,7 @@ class GameViewController: UIViewController {
     scene.removeAllCookieSprites()
     
     if gameOver {
+      self.quitButton.enabled = false
       self.fadeOutBackgroundMusic()
     }
     
@@ -288,11 +292,7 @@ class GameViewController: UIViewController {
   }
 
   func endGame() {
-    noticePanel.hidden = true
-//    scene.userInteractionEnabled = false
-//    backgroundMusic.stop()
-
-    beginGame()
+    switchingViewController.switchViews()
   }
   
 
@@ -325,8 +325,12 @@ class GameViewController: UIViewController {
     let quitAction = UIAlertAction(
       title: "Yes, I'm done playing.",
       style: .Destructive) { (action: UIAlertAction!) in
+        self.shuffleButton.enabled = false
+        self.hintButton.enabled = false
+        self.quitButton.enabled = false
         self.scene.tilesLayer.removeAllChildren()
         self.scene.removeAllCookieSprites()
+        self.fadeOutBackgroundMusic()
         self.endGame()
     }
     let cancelAction = UIAlertAction(
