@@ -23,6 +23,9 @@ class GameViewController: UIViewController {
   @IBOutlet weak var hintButton: UIButton!
   @IBOutlet weak var quitButton: UIButton!
   
+  let maximumLevelDefined = 26
+  let maximumBackgroundDefined = 4
+  
   // The scene draws the tiles and cookie sprites, and handles swipes.
   var scene: GameScene!
 
@@ -106,14 +109,16 @@ class GameViewController: UIViewController {
     // Load the level.
     levelScore = 0
     
-    level = Level(filename: "Level_\(levelNumber)")
+    let levelToLoad = ((levelNumber - 1) % maximumLevelDefined) + 1
+    level = Level(filename: "Level_\(levelToLoad)")
     print("Loaded level \(levelNumber)")
     level.resetComboMultiplier()
     movesLeft = level.maximumMoves
     updateLabels()
     
-    scene.background.texture = SKTexture(imageNamed: "Background_\((levelNumber - 1) % 4 + 1)")
-//    scene.background.setScale(0.70)
+    let backgroundToLoad = ((levelNumber - 1) % maximumBackgroundDefined) + 1
+    scene.background.texture = SKTexture(imageNamed: "Background_\(backgroundToLoad)")
+    
     scene.tilesLayer.removeAllChildren()
     scene.level = level
     
@@ -286,9 +291,6 @@ class GameViewController: UIViewController {
     scene.userInteractionEnabled = true
     
     levelNumber += 1
-    if levelNumber > 20 {
-      levelNumber = 1
-    }
     beginLevel()
   }
 
