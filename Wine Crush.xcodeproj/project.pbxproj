@@ -51,6 +51,12 @@
 		D4FB7BB91C82A19600329EFD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4FB7BB81C82A19600329EFD /* Images.xcassets */; };
 		D4FB7BBB1C82ABC000329EFD /* SwitchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FB7BBA1C82ABC000329EFD /* SwitchingViewController.swift */; };
 		D4FB7BBD1C82ABEA00329EFD /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FB7BBC1C82ABEA00329EFD /* StartViewController.swift */; };
+		D4FB7BBF1C84D38A00329EFD /* Level_21.json in Resources */ = {isa = PBXBuildFile; fileRef = D4FB7BBE1C84D38A00329EFD /* Level_21.json */; };
+		D4FB7BC11C84D4E500329EFD /* Level_22.json in Resources */ = {isa = PBXBuildFile; fileRef = D4FB7BC01C84D4E500329EFD /* Level_22.json */; };
+		D4FB7BC31C84D5A600329EFD /* Level_23.json in Resources */ = {isa = PBXBuildFile; fileRef = D4FB7BC21C84D5A600329EFD /* Level_23.json */; };
+		D4FB7BC51C84D60F00329EFD /* Level_24.json in Resources */ = {isa = PBXBuildFile; fileRef = D4FB7BC41C84D60F00329EFD /* Level_24.json */; };
+		D4FB7BC71C84D74500329EFD /* Level_25.json in Resources */ = {isa = PBXBuildFile; fileRef = D4FB7BC61C84D74500329EFD /* Level_25.json */; };
+		D4FB7BC91C84D8B100329EFD /* Level_26.json in Resources */ = {isa = PBXBuildFile; fileRef = D4FB7BC81C84D8B100329EFD /* Level_26.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +106,12 @@
 		D4FB7BB81C82A19600329EFD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D4FB7BBA1C82ABC000329EFD /* SwitchingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchingViewController.swift; sourceTree = "<group>"; };
 		D4FB7BBC1C82ABEA00329EFD /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		D4FB7BBE1C84D38A00329EFD /* Level_21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_21.json; sourceTree = "<group>"; };
+		D4FB7BC01C84D4E500329EFD /* Level_22.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_22.json; sourceTree = "<group>"; };
+		D4FB7BC21C84D5A600329EFD /* Level_23.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_23.json; sourceTree = "<group>"; };
+		D4FB7BC41C84D60F00329EFD /* Level_24.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_24.json; sourceTree = "<group>"; };
+		D4FB7BC61C84D74500329EFD /* Level_25.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_25.json; sourceTree = "<group>"; };
+		D4FB7BC81C84D8B100329EFD /* Level_26.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_26.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +191,12 @@
 				D4552E061C82379500F003D0 /* Level_18.json */,
 				D4552E071C82379500F003D0 /* Level_19.json */,
 				D4552E091C82379500F003D0 /* Level_20.json */,
+				D4FB7BBE1C84D38A00329EFD /* Level_21.json */,
+				D4FB7BC01C84D4E500329EFD /* Level_22.json */,
+				D4FB7BC21C84D5A600329EFD /* Level_23.json */,
+				D4FB7BC41C84D60F00329EFD /* Level_24.json */,
+				D4FB7BC61C84D74500329EFD /* Level_25.json */,
+				D4FB7BC81C84D8B100329EFD /* Level_26.json */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -263,19 +281,23 @@
 				D4552E241C82379500F003D0 /* Level_2.json in Resources */,
 				D4552E231C82379500F003D0 /* Level_19.json in Resources */,
 				D4552E1D1C82379500F003D0 /* Level_13.json in Resources */,
+				D4FB7BC71C84D74500329EFD /* Level_25.json in Resources */,
 				D4552E211C82379500F003D0 /* Level_17.json in Resources */,
 				D4552DDD1C8234A900F003D0 /* LaunchScreen.storyboard in Resources */,
 				D4552E261C82379500F003D0 /* Level_3.json in Resources */,
 				D4552E301C82379500F003D0 /* Error.wav in Resources */,
 				D4552E291C82379500F003D0 /* Level_6.json in Resources */,
 				D4552E221C82379500F003D0 /* Level_18.json in Resources */,
+				D4FB7BC51C84D60F00329EFD /* Level_24.json in Resources */,
 				D4552E2A1C82379500F003D0 /* Level_7.json in Resources */,
 				D4552DD81C8234A900F003D0 /* Main.storyboard in Resources */,
 				D4552E311C82379500F003D0 /* Ka-Ching.wav in Resources */,
+				D4FB7BBF1C84D38A00329EFD /* Level_21.json in Resources */,
 				D4552E271C82379500F003D0 /* Level_4.json in Resources */,
 				D4552E201C82379500F003D0 /* Level_16.json in Resources */,
 				D4552E1E1C82379500F003D0 /* Level_14.json in Resources */,
 				D4552E2D1C82379500F003D0 /* Chomp.wav in Resources */,
+				D4FB7BC31C84D5A600329EFD /* Level_23.json in Resources */,
 				D4552E2F1C82379500F003D0 /* Drip.wav in Resources */,
 				D4552E1F1C82379500F003D0 /* Level_15.json in Resources */,
 				D4552E2C1C82379500F003D0 /* Level_9.json in Resources */,
@@ -283,9 +305,11 @@
 				D4552E331C82379500F003D0 /* Scrape.wav in Resources */,
 				D4552E281C82379500F003D0 /* Level_5.json in Resources */,
 				D4552E1B1C82379500F003D0 /* Level_11.json in Resources */,
+				D4FB7BC91C84D8B100329EFD /* Level_26.json in Resources */,
 				D4552E1A1C82379500F003D0 /* Level_10.json in Resources */,
 				D4552E1C1C82379500F003D0 /* Level_12.json in Resources */,
 				D4552DF91C82375F00F003D0 /* Grid.atlas in Resources */,
+				D4FB7BC11C84D4E500329EFD /* Level_22.json in Resources */,
 				D4552DFA1C82375F00F003D0 /* Sprites.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
