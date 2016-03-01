@@ -23,7 +23,7 @@ class GameViewController: UIViewController {
   @IBOutlet weak var hintButton: UIButton!
   @IBOutlet weak var quitButton: UIButton!
   
-  let maximumLevelDefined = 26
+  let maximumLevelDefined = 27
   let maximumBackgroundDefined = 4
   
   // The scene draws the tiles and cookie sprites, and handles swipes.
@@ -38,6 +38,7 @@ class GameViewController: UIViewController {
   var gameScore = 999999
   var levelScore = 0
 
+  var hintGiven = false
 
 
   var tapGestureRecognizer: UITapGestureRecognizer!
@@ -97,7 +98,7 @@ class GameViewController: UIViewController {
     
     // Let's start the game!
     gameScore = 0
-    levelNumber = 26
+    levelNumber = 27
     
     beginLevel()
   }
@@ -121,6 +122,8 @@ class GameViewController: UIViewController {
     
     scene.tilesLayer.removeAllChildren()
     scene.level = level
+    
+    hintGiven = false
     
     delay(4.0) {
       self.scene.addTiles()
@@ -202,6 +205,7 @@ class GameViewController: UIViewController {
   func beginNextTurn() {
     level.resetComboMultiplier()
     level.detectPossibleSwaps()
+    hintGiven = false
     view.userInteractionEnabled = true
     decrementMoves()
   }
@@ -313,6 +317,12 @@ class GameViewController: UIViewController {
       view.userInteractionEnabled = false
       scene.animateInvalidSwap(swap) {
         self.view.userInteractionEnabled = true
+        if !self.hintGiven {
+          self.gameScore = max(self.gameScore - 10, 0)
+          self.levelScore = max(self.gameScore - 10, 0)
+          self.hintGiven = true
+        }
+        self.updateLabels()
       }
     }
     else {

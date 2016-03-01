@@ -57,6 +57,7 @@
 		D4FB7BC51C84D60F00329EFD /* Level_24.json in Resources */ = {isa = PBXBuildFile; fileRef = D4FB7BC41C84D60F00329EFD /* Level_24.json */; };
 		D4FB7BC71C84D74500329EFD /* Level_25.json in Resources */ = {isa = PBXBuildFile; fileRef = D4FB7BC61C84D74500329EFD /* Level_25.json */; };
 		D4FB7BC91C84D8B100329EFD /* Level_26.json in Resources */ = {isa = PBXBuildFile; fileRef = D4FB7BC81C84D8B100329EFD /* Level_26.json */; };
+		D4FB7BCB1C85D81500329EFD /* Level_27.json in Resources */ = {isa = PBXBuildFile; fileRef = D4FB7BCA1C85D81500329EFD /* Level_27.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		D4FB7BC41C84D60F00329EFD /* Level_24.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_24.json; sourceTree = "<group>"; };
 		D4FB7BC61C84D74500329EFD /* Level_25.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_25.json; sourceTree = "<group>"; };
 		D4FB7BC81C84D8B100329EFD /* Level_26.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_26.json; sourceTree = "<group>"; };
+		D4FB7BCA1C85D81500329EFD /* Level_27.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_27.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 				D4FB7BC41C84D60F00329EFD /* Level_24.json */,
 				D4FB7BC61C84D74500329EFD /* Level_25.json */,
 				D4FB7BC81C84D8B100329EFD /* Level_26.json */,
+				D4FB7BCA1C85D81500329EFD /* Level_27.json */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				D4552E221C82379500F003D0 /* Level_18.json in Resources */,
 				D4FB7BC51C84D60F00329EFD /* Level_24.json in Resources */,
 				D4552E2A1C82379500F003D0 /* Level_7.json in Resources */,
+				D4FB7BCB1C85D81500329EFD /* Level_27.json in Resources */,
 				D4552DD81C8234A900F003D0 /* Main.storyboard in Resources */,
 				D4552E311C82379500F003D0 /* Ka-Ching.wav in Resources */,
 				D4FB7BBF1C84D38A00329EFD /* Level_21.json in Resources */,
