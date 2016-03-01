@@ -35,8 +35,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wsp-gy-mfy">
-                                <rect key="frame" x="239" y="0.0" width="123" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" misplaced="YES" placeholderIntrinsicWidth="537" placeholderIntrinsicHeight="36" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9n2-lo-IEe">
+                                <rect key="frame" x="32" y="544" width="537" height="36"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="Aspirations Winery’s site" backgroundImage="Button">
+                                    <color key="titleShadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="446" placeholderIntrinsicHeight="36" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wsp-gy-mfy">
+                                <rect key="frame" x="40" y="432" width="520" height="36"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
                                 <size key="titleShadowOffset" width="0.0" height="1"/>
                                 <state key="normal" title="Play the game" backgroundImage="Button">
@@ -46,11 +54,40 @@
                                     <action selector="playGameButtonPressed:" destination="hOo-Cc-4in" eventType="touchUpInside" id="Dyg-82-6ij"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pi-kt-M4E">
+                                <rect key="frame" x="40" y="488" width="520" height="36"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="About the game" backgroundImage="Button">
+                                    <color key="titleShadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Wsp-gy-mfy" firstAttribute="centerX" secondItem="9Hv-0I-8Fa" secondAttribute="centerX" id="EVb-zN-W5w"/>
+                            <constraint firstItem="4pi-kt-M4E" firstAttribute="leading" secondItem="9Hv-0I-8Fa" secondAttribute="leadingMargin" constant="20" id="6oG-cc-EqK"/>
+                            <constraint firstItem="4pi-kt-M4E" firstAttribute="top" secondItem="Wsp-gy-mfy" secondAttribute="bottom" constant="20" id="ES7-Un-4lW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4pi-kt-M4E" secondAttribute="trailing" constant="20" id="IOe-LJ-trP"/>
+                            <constraint firstItem="9n2-lo-IEe" firstAttribute="leading" secondItem="4pi-kt-M4E" secondAttribute="leading" id="Ind-62-744"/>
+                            <constraint firstItem="Wsp-gy-mfy" firstAttribute="centerX" secondItem="9Hv-0I-8Fa" secondAttribute="centerX" constant="-63" id="SRA-C6-e80"/>
+                            <constraint firstItem="9n2-lo-IEe" firstAttribute="top" secondItem="4pi-kt-M4E" secondAttribute="bottom" constant="20" id="VY2-wg-HMD"/>
+                            <constraint firstItem="Wsp-gy-mfy" firstAttribute="leading" secondItem="9Hv-0I-8Fa" secondAttribute="leadingMargin" constant="20" id="WSB-yN-Y8S"/>
+                            <constraint firstItem="9n2-lo-IEe" firstAttribute="width" secondItem="Wsp-gy-mfy" secondAttribute="width" constant="-34" id="ZES-Tf-oIZ"/>
+                            <constraint firstAttribute="bottom" secondItem="9n2-lo-IEe" secondAttribute="bottom" constant="20" symbolic="YES" id="cav-Ih-n2Y"/>
+                            <constraint firstItem="Wsp-gy-mfy" firstAttribute="centerX" secondItem="9Hv-0I-8Fa" secondAttribute="centerX" id="fnq-Y8-Uq4"/>
+                            <constraint firstItem="4pi-kt-M4E" firstAttribute="width" secondItem="Wsp-gy-mfy" secondAttribute="width" constant="-34" id="hEQ-vb-YQ1"/>
+                            <constraint firstItem="9n2-lo-IEe" firstAttribute="trailing" secondItem="4pi-kt-M4E" secondAttribute="trailing" id="keg-Z0-Kbd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Wsp-gy-mfy" secondAttribute="trailing" constant="20" id="lNi-5x-IzD"/>
+                            <constraint firstItem="4pi-kt-M4E" firstAttribute="top" secondItem="Wsp-gy-mfy" secondAttribute="bottom" constant="20" id="uFh-93-X1G"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="SRA-C6-e80"/>
+                                <exclude reference="hEQ-vb-YQ1"/>
+                                <exclude reference="uFh-93-X1G"/>
+                                <exclude reference="ZES-Tf-oIZ"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JO9-23-YLK" userLabel="First Responder" sceneMemberID="firstResponder"/>
