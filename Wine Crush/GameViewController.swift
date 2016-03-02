@@ -319,7 +319,7 @@ class GameViewController: UIViewController {
         self.view.userInteractionEnabled = true
         if !self.hintGiven {
           self.gameScore = max(self.gameScore - 10, 0)
-          self.levelScore = max(self.gameScore - 10, 0)
+          self.levelScore = max(self.levelScore - 10, 0)
           self.hintGiven = true
         }
         self.updateLabels()
