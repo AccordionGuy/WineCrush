@@ -35,14 +35,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" misplaced="YES" placeholderIntrinsicWidth="537" placeholderIntrinsicHeight="36" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9n2-lo-IEe">
-                                <rect key="frame" x="32" y="544" width="537" height="36"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
-                                <size key="titleShadowOffset" width="0.0" height="1"/>
-                                <state key="normal" title="Aspirations Winery’s site" backgroundImage="Button">
-                                    <color key="titleShadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="446" placeholderIntrinsicHeight="36" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wsp-gy-mfy">
                                 <rect key="frame" x="40" y="432" width="520" height="36"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
@@ -62,30 +54,73 @@
                                     <color key="titleShadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wine Crush" translatesAutoresizingMaskIntoConstraints="NO" id="rSn-LY-Wjv">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" misplaced="YES" placeholderIntrinsicWidth="537" placeholderIntrinsicHeight="36" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7E-FP-SfT">
+                                <rect key="frame" x="40" y="544" width="537" height="36"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="Aspirations Winery’s site" backgroundImage="Button">
+                                    <color key="titleShadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7c-aU-RkN">
+                                <rect key="frame" x="40" y="489" width="520" height="36"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="About the game" backgroundImage="Button">
+                                    <color key="titleShadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="446" placeholderIntrinsicHeight="36" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6f9-lh-QwG">
+                                <rect key="frame" x="40" y="428" width="520" height="36"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="Play the game" backgroundImage="Button">
+                                    <color key="titleShadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playGameButtonPressed:" destination="hOo-Cc-4in" eventType="touchUpInside" id="48z-4D-1L5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="rSn-LY-Wjv" firstAttribute="leading" secondItem="9Hv-0I-8Fa" secondAttribute="leadingMargin" constant="-20" id="16i-CZ-G43"/>
                             <constraint firstItem="4pi-kt-M4E" firstAttribute="leading" secondItem="9Hv-0I-8Fa" secondAttribute="leadingMargin" constant="20" id="6oG-cc-EqK"/>
+                            <constraint firstItem="K7c-aU-RkN" firstAttribute="top" secondItem="6f9-lh-QwG" secondAttribute="bottom" constant="25" id="BK2-Ii-vOU"/>
                             <constraint firstItem="4pi-kt-M4E" firstAttribute="top" secondItem="Wsp-gy-mfy" secondAttribute="bottom" constant="20" id="ES7-Un-4lW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4pi-kt-M4E" secondAttribute="trailing" constant="20" id="IOe-LJ-trP"/>
-                            <constraint firstItem="9n2-lo-IEe" firstAttribute="leading" secondItem="4pi-kt-M4E" secondAttribute="leading" id="Ind-62-744"/>
+                            <constraint firstItem="7sF-YB-zFC" firstAttribute="top" secondItem="rSn-LY-Wjv" secondAttribute="bottom" id="O8v-cH-9t9"/>
+                            <constraint firstItem="K7c-aU-RkN" firstAttribute="leading" secondItem="9Hv-0I-8Fa" secondAttribute="leadingMargin" constant="20" id="S3V-6J-vXA"/>
                             <constraint firstItem="Wsp-gy-mfy" firstAttribute="centerX" secondItem="9Hv-0I-8Fa" secondAttribute="centerX" constant="-63" id="SRA-C6-e80"/>
-                            <constraint firstItem="9n2-lo-IEe" firstAttribute="top" secondItem="4pi-kt-M4E" secondAttribute="bottom" constant="20" id="VY2-wg-HMD"/>
+                            <constraint firstItem="w7E-FP-SfT" firstAttribute="leading" secondItem="9Hv-0I-8Fa" secondAttribute="leadingMargin" constant="20" id="TpG-f9-MYt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="w7E-FP-SfT" secondAttribute="trailing" constant="20" id="Vbb-55-jab"/>
                             <constraint firstItem="Wsp-gy-mfy" firstAttribute="leading" secondItem="9Hv-0I-8Fa" secondAttribute="leadingMargin" constant="20" id="WSB-yN-Y8S"/>
-                            <constraint firstItem="9n2-lo-IEe" firstAttribute="width" secondItem="Wsp-gy-mfy" secondAttribute="width" constant="-34" id="ZES-Tf-oIZ"/>
-                            <constraint firstAttribute="bottom" secondItem="9n2-lo-IEe" secondAttribute="bottom" constant="20" symbolic="YES" id="cav-Ih-n2Y"/>
+                            <constraint firstItem="rSn-LY-Wjv" firstAttribute="top" secondItem="9Hv-0I-8Fa" secondAttribute="topMargin" id="a17-LB-Uvc"/>
+                            <constraint firstItem="w7E-FP-SfT" firstAttribute="top" secondItem="K7c-aU-RkN" secondAttribute="bottom" constant="19" id="c6M-75-Ib5"/>
                             <constraint firstItem="Wsp-gy-mfy" firstAttribute="centerX" secondItem="9Hv-0I-8Fa" secondAttribute="centerX" id="fnq-Y8-Uq4"/>
+                            <constraint firstItem="6f9-lh-QwG" firstAttribute="leading" secondItem="9Hv-0I-8Fa" secondAttribute="leadingMargin" constant="20" id="g2W-hJ-5NQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="K7c-aU-RkN" secondAttribute="trailing" constant="20" id="gWi-RL-O5C"/>
                             <constraint firstItem="4pi-kt-M4E" firstAttribute="width" secondItem="Wsp-gy-mfy" secondAttribute="width" constant="-34" id="hEQ-vb-YQ1"/>
-                            <constraint firstItem="9n2-lo-IEe" firstAttribute="trailing" secondItem="4pi-kt-M4E" secondAttribute="trailing" id="keg-Z0-Kbd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6f9-lh-QwG" secondAttribute="trailing" constant="20" id="hGK-OT-Igs"/>
+                            <constraint firstItem="K7c-aU-RkN" firstAttribute="top" secondItem="6f9-lh-QwG" secondAttribute="bottom" constant="20" id="ipJ-jW-Cfc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Wsp-gy-mfy" secondAttribute="trailing" constant="20" id="lNi-5x-IzD"/>
+                            <constraint firstItem="w7E-FP-SfT" firstAttribute="top" secondItem="K7c-aU-RkN" secondAttribute="bottom" constant="20" id="peK-Ep-hp5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rSn-LY-Wjv" secondAttribute="trailing" constant="-20" id="rdc-RS-aFX"/>
                             <constraint firstItem="4pi-kt-M4E" firstAttribute="top" secondItem="Wsp-gy-mfy" secondAttribute="bottom" constant="20" id="uFh-93-X1G"/>
+                            <constraint firstItem="7sF-YB-zFC" firstAttribute="top" secondItem="w7E-FP-SfT" secondAttribute="bottom" constant="20" id="uRf-Dn-YAx"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Wsp-gy-mfy"/>
+                                <exclude reference="4pi-kt-M4E"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="SRA-C6-e80"/>
                                 <exclude reference="hEQ-vb-YQ1"/>
                                 <exclude reference="uFh-93-X1G"/>
-                                <exclude reference="ZES-Tf-oIZ"/>
                             </mask>
                         </variation>
                     </view>
@@ -108,7 +143,7 @@
                         <subviews>
                             <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oa0-qq-V4l">
                                 <rect key="frame" x="0.0" y="20" width="600" height="39"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="QwF-Dz-b6q"/>
                                 </constraints>
@@ -233,7 +268,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XR2-lo-3lp">
                                 <rect key="frame" x="150" y="544" width="300" height="36"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nC-2c-C1w">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nC-2c-C1w">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="36"/>
                                         <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
@@ -245,7 +280,7 @@
                                             <action selector="shuffleButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nPX-mE-7sG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqt-3F-G88" userLabel="Hint Button">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqt-3F-G88" userLabel="Hint Button">
                                         <rect key="frame" x="100" y="0.0" width="100" height="36"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
                                         <size key="titleShadowOffset" width="0.0" height="1"/>
@@ -256,7 +291,7 @@
                                             <action selector="hintButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zGI-Du-Nqy"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5X-dm-Wuh" userLabel="Hint Button">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5X-dm-Wuh" userLabel="Hint Button">
                                         <rect key="frame" x="200" y="0.0" width="100" height="36"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
                                         <size key="titleShadowOffset" width="0.0" height="1"/>
@@ -269,6 +304,39 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMg-VV-OEA">
+                                <rect key="frame" x="20" y="159" width="560" height="125"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Possible Swaps!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeE-z9-15K">
+                                        <rect key="frame" x="20" y="20" width="508" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="Bgh-sV-5fF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IcF-ra-xmJ">
+                                        <rect key="frame" x="20" y="78" width="520" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="k1X-ge-ybH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="aeE-z9-15K" firstAttribute="leading" secondItem="uMg-VV-OEA" secondAttribute="leading" constant="20" id="5nK-v6-kKz"/>
+                                    <constraint firstAttribute="height" constant="125" id="ZZH-Jd-kbW"/>
+                                    <constraint firstAttribute="trailing" secondItem="IcF-ra-xmJ" secondAttribute="trailing" constant="20" id="cso-Dh-7Kq"/>
+                                    <constraint firstItem="aeE-z9-15K" firstAttribute="top" secondItem="uMg-VV-OEA" secondAttribute="top" constant="20" id="ean-FZ-VsY"/>
+                                    <constraint firstAttribute="trailing" secondItem="aeE-z9-15K" secondAttribute="trailing" constant="32" id="gAn-0V-2SC"/>
+                                    <constraint firstItem="IcF-ra-xmJ" firstAttribute="leading" secondItem="uMg-VV-OEA" secondAttribute="leading" constant="20" id="hPX-OJ-pFv"/>
+                                    <constraint firstItem="IcF-ra-xmJ" firstAttribute="top" secondItem="aeE-z9-15K" secondAttribute="bottom" constant="10" id="tGY-t6-hny"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -277,20 +345,26 @@
                             <constraint firstItem="oa0-qq-V4l" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="DGL-7o-WPz"/>
                             <constraint firstItem="XR2-lo-3lp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QN8-MC-GRt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oa0-qq-V4l" secondAttribute="trailing" constant="-20" id="W6i-Jp-ojr"/>
+                            <constraint firstItem="uMg-VV-OEA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="XTs-Dk-iqt"/>
                             <constraint firstItem="tNh-Jy-xLM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="YAO-vM-kif"/>
                             <constraint firstItem="tNh-Jy-xLM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aFL-nt-TEE"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XR2-lo-3lp" secondAttribute="bottom" constant="10" id="ehT-Mg-dOV"/>
                             <constraint firstItem="oa0-qq-V4l" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="fge-kL-b5G"/>
+                            <constraint firstItem="uMg-VV-OEA" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="guk-Rc-Jmx"/>
                             <constraint firstItem="93J-bO-2Fy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iPS-DT-dwA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oa0-qq-V4l" secondAttribute="trailing" constant="-20" id="shs-SS-S1Y"/>
                             <constraint firstItem="93J-bO-2Fy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t7p-CT-8J6"/>
+                            <constraint firstItem="uMg-VV-OEA" firstAttribute="top" secondItem="tNh-Jy-xLM" secondAttribute="bottom" constant="100" id="u5j-ye-cKa"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="hintButton" destination="Fqt-3F-G88" id="SHy-p9-2WZ"/>
                         <outlet property="levelLabel" destination="Wth-xG-373" id="iFh-cI-RZs"/>
                         <outlet property="movesLabel" destination="CvG-iU-GuR" id="P5C-m0-nym"/>
+                        <outlet property="noticeMessageLabel" destination="IcF-ra-xmJ" id="0DV-UW-cb1"/>
                         <outlet property="noticePanel" destination="93J-bO-2Fy" id="le6-04-yGm"/>
+                        <outlet property="noticeTitleLabel" destination="aeE-z9-15K" id="2mE-YT-Txm"/>
+                        <outlet property="noticeView" destination="uMg-VV-OEA" id="uyH-1f-v6h"/>
                         <outlet property="pointsToGoLabel" destination="OEW-Vx-PSE" id="v9U-79-SLe"/>
                         <outlet property="quitButton" destination="J5X-dm-Wuh" id="XsC-2n-Bah"/>
                         <outlet property="scoreLabel" destination="HO0-s7-kkf" id="aKe-UZ-smt"/>
@@ -304,5 +378,6 @@
     </scenes>
     <resources>
         <image name="Button" width="100" height="36"/>
+        <image name="Wine Crush" width="375" height="567"/>
     </resources>
 </document>

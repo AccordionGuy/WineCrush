@@ -22,6 +22,9 @@ class GameViewController: UIViewController {
   @IBOutlet weak var shuffleButton: UIButton!
   @IBOutlet weak var hintButton: UIButton!
   @IBOutlet weak var quitButton: UIButton!
+  @IBOutlet weak var noticeView: UIView!
+  @IBOutlet weak var noticeTitleLabel: UILabel!
+  @IBOutlet weak var noticeMessageLabel: UILabel!
   
   let maximumLevelDefined = 27
   let maximumBackgroundDefined = 4
@@ -86,7 +89,8 @@ class GameViewController: UIViewController {
   
   func beginGame() {
     // Hide the end of play panel from the screen.
-    noticePanel.hidden = true
+//    noticePanel.hidden = true
+    hideNoticeView()
     
     shuffleButton.enabled = false
     hintButton.enabled = false
@@ -132,6 +136,7 @@ class GameViewController: UIViewController {
         self.shuffleButton.enabled = true
         self.hintButton.enabled = true
         self.quitButton.enabled = true
+        self.view.userInteractionEnabled = true
       }
       self.shuffle()
     }
@@ -232,22 +237,34 @@ class GameViewController: UIViewController {
     updateLabels()
 
     if levelScore >= level.targetScore {
-      noticePanel.image = UIImage(named: "LevelComplete")
+//      noticePanel.image = UIImage(named: "LevelComplete")
       showEndOfPlay(gameOver: false)
     } else if movesLeft == 0 {
-      noticePanel.image = UIImage(named: "GameOver")
+//      noticePanel.image = UIImage(named: "GameOver")
       showEndOfPlay(gameOver: true)
     } else if level.swapsCount() == 0 {
-      noticePanel.image = UIImage(named: "NoPossibleSwaps")
+//      noticePanel.image = UIImage(named: "NoPossibleSwaps")
       showNoPossibleSwaps()
     }
   }
 
   func showEndOfPlay(gameOver gameOver: Bool = false) {
-    noticePanel.hidden = false
-    scene.userInteractionEnabled = false
+//    noticePanel.hidden = false
+    let theTitle: String
+    let theMessage: String
+    if gameOver {
+      theTitle = "Game Over"
+      theMessage = "Now go enjoy some wine!"
+    }
+    else {
+      theTitle = "Level Complete"
+      theMessage = "Get ready for the next one"
+    }
+    showNoticeView(title: theTitle, message: theMessage)
+    view.userInteractionEnabled = false
     shuffleButton.enabled = false
     hintButton.enabled = false
+    quitButton.enabled = false
     
     scene.tilesLayer.removeAllChildren()
     scene.removeAllCookieSprites()
@@ -278,20 +295,23 @@ class GameViewController: UIViewController {
   }
   
   func showNoPossibleSwaps() {
-    noticePanel.hidden = false
+//    noticePanel.hidden = false
+    showNoticeView(title: "No Possible Swaps!", message: "Use the Shuffle button")
     scene.userInteractionEnabled = false
     shuffleButton.enabled = false
     hintButton.enabled = false
     
     delay(3.0) {
-      self.noticePanel.hidden = true
+//      self.noticePanel.hidden = true
+      self.hideNoticeView()
       self.scene.userInteractionEnabled = true
       self.shuffleButton.enabled = true
     }
   }
   
   func increaseLevel() {
-    noticePanel.hidden = true
+//    noticePanel.hidden = true
+    hideNoticeView()
     scene.userInteractionEnabled = true
     
     levelNumber += 1
@@ -354,6 +374,16 @@ class GameViewController: UIViewController {
     alertController.addAction(quitAction)
     alertController.addAction(cancelAction)
     presentViewController(alertController, animated: true, completion: nil)
+  }
+  
+  func showNoticeView(title title: String, message: String) {
+    noticeTitleLabel.text = title
+    noticeMessageLabel.text = message
+    noticeView.hidden = false
+  }
+  
+  func hideNoticeView() {
+    noticeView.hidden = true
   }
   
 }
