@@ -102,7 +102,7 @@ class GameViewController: UIViewController {
     
     // Let's start the game!
     gameScore = 0
-    levelNumber = 27
+    levelNumber = 24
     
     beginLevel()
   }
