@@ -48,6 +48,8 @@
 		D4552E311C82379500F003D0 /* Ka-Ching.wav in Resources */ = {isa = PBXBuildFile; fileRef = D4552E161C82379500F003D0 /* Ka-Ching.wav */; };
 		D4552E321C82379500F003D0 /* Mining by Moonlight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D4552E171C82379500F003D0 /* Mining by Moonlight.mp3 */; };
 		D4552E331C82379500F003D0 /* Scrape.wav in Resources */ = {isa = PBXBuildFile; fileRef = D4552E181C82379500F003D0 /* Scrape.wav */; };
+		D4DE45001C963EF900A6FD9F /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DE44FF1C963EF900A6FD9F /* AboutViewController.swift */; };
+		D4DE45031C96426800A6FD9F /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = D4DE45021C96426800A6FD9F /* about.html */; };
 		D4FB7BB91C82A19600329EFD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4FB7BB81C82A19600329EFD /* Images.xcassets */; };
 		D4FB7BBB1C82ABC000329EFD /* SwitchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FB7BBA1C82ABC000329EFD /* SwitchingViewController.swift */; };
 		D4FB7BBD1C82ABEA00329EFD /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FB7BBC1C82ABEA00329EFD /* StartViewController.swift */; };
@@ -104,6 +106,8 @@
 		D4552E161C82379500F003D0 /* Ka-Ching.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Ka-Ching.wav"; sourceTree = "<group>"; };
 		D4552E171C82379500F003D0 /* Mining by Moonlight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mining by Moonlight.mp3"; sourceTree = "<group>"; };
 		D4552E181C82379500F003D0 /* Scrape.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Scrape.wav; sourceTree = "<group>"; };
+		D4DE44FF1C963EF900A6FD9F /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = ../AboutViewController.swift; sourceTree = "<group>"; };
+		D4DE45021C96426800A6FD9F /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		D4FB7BB81C82A19600329EFD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D4FB7BBA1C82ABC000329EFD /* SwitchingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchingViewController.swift; sourceTree = "<group>"; };
 		D4FB7BBC1C82ABEA00329EFD /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 		D4552DD11C8234A900F003D0 /* Wine Crush */ = {
 			isa = PBXGroup;
 			children = (
+				D4DE44FF1C963EF900A6FD9F /* AboutViewController.swift */,
 				D4FB7BBC1C82ABEA00329EFD /* StartViewController.swift */,
 				D4FB7BBA1C82ABC000329EFD /* SwitchingViewController.swift */,
 				D4552DD21C8234A900F003D0 /* AppDelegate.swift */,
@@ -164,6 +169,7 @@
 				D4552DF71C82375F00F003D0 /* Sprites.atlas */,
 				D4552DFC1C82379500F003D0 /* Levels */,
 				D4552E111C82379500F003D0 /* Sounds */,
+				D4DE45011C96423B00A6FD9F /* About web page */,
 				D4552DDB1C8234A900F003D0 /* LaunchScreen.storyboard */,
 				D4552DDE1C8234A900F003D0 /* Info.plist */,
 			);
@@ -216,6 +222,14 @@
 				D4552E181C82379500F003D0 /* Scrape.wav */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		D4DE45011C96423B00A6FD9F /* About web page */ = {
+			isa = PBXGroup;
+			children = (
+				D4DE45021C96426800A6FD9F /* about.html */,
+			);
+			name = "About web page";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +298,7 @@
 				D4552E241C82379500F003D0 /* Level_2.json in Resources */,
 				D4552E231C82379500F003D0 /* Level_19.json in Resources */,
 				D4552E1D1C82379500F003D0 /* Level_13.json in Resources */,
+				D4DE45031C96426800A6FD9F /* about.html in Resources */,
 				D4FB7BC71C84D74500329EFD /* Level_25.json in Resources */,
 				D4552E211C82379500F003D0 /* Level_17.json in Resources */,
 				D4552DDD1C8234A900F003D0 /* LaunchScreen.storyboard in Resources */,
@@ -336,6 +351,7 @@
 				D4552DF51C8236A300F003D0 /* Tile.swift in Sources */,
 				D4552DE51C82363000F003D0 /* Array2D.swift in Sources */,
 				D4FB7BBB1C82ABC000329EFD /* SwitchingViewController.swift in Sources */,
+				D4DE45001C963EF900A6FD9F /* AboutViewController.swift in Sources */,
 				D4552DF31C82369900F003D0 /* Swap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

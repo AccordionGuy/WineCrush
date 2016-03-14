@@ -84,6 +84,9 @@
                                 <state key="normal" title="About the game" backgroundImage="Button">
                                     <color key="titleShadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="TaY-9l-TYf" kind="presentation" modalTransitionStyle="partialCurl" id="T8x-aC-66I"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -125,7 +128,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JO9-23-YLK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="416" y="-222"/>
+            <point key="canvasLocation" x="448" y="-218"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="Jv2-N0-MqG">
+            <objects>
+                <viewController id="TaY-9l-TYf" customClass="AboutViewController" customModule="Wine_Crush" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gmN-HV-22l"/>
+                        <viewControllerLayoutGuide type="bottom" id="G4F-ZY-wlj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ioF-Nd-b83">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sd-tW-1yf">
+                                <rect key="frame" x="40" y="544" width="520" height="36"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="Back to main menu" backgroundImage="Button">
+                                    <color key="titleShadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="TaY-9l-TYf" eventType="touchUpInside" id="L3i-fG-qrz"/>
+                                </connections>
+                            </button>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6d7-WQ-6UM">
+                                <rect key="frame" x="20" y="20" width="560" height="506"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7sd-tW-1yf" firstAttribute="centerX" secondItem="ioF-Nd-b83" secondAttribute="centerX" id="OH8-dM-h8o"/>
+                            <constraint firstItem="6d7-WQ-6UM" firstAttribute="leading" secondItem="ioF-Nd-b83" secondAttribute="leadingMargin" id="Uuf-qz-YTN"/>
+                            <constraint firstItem="7sd-tW-1yf" firstAttribute="top" secondItem="6d7-WQ-6UM" secondAttribute="bottom" constant="18" id="a0m-3d-3pB"/>
+                            <constraint firstItem="6d7-WQ-6UM" firstAttribute="centerX" secondItem="7sd-tW-1yf" secondAttribute="centerX" id="dIJ-jP-1Zk"/>
+                            <constraint firstItem="6d7-WQ-6UM" firstAttribute="top" secondItem="gmN-HV-22l" secondAttribute="bottom" id="n34-gq-7vw"/>
+                            <constraint firstItem="7sd-tW-1yf" firstAttribute="leading" secondItem="ioF-Nd-b83" secondAttribute="leadingMargin" constant="20" id="oph-ri-QiA"/>
+                            <constraint firstAttribute="bottom" secondItem="7sd-tW-1yf" secondAttribute="bottom" constant="20" symbolic="YES" id="phO-Hf-SGL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="aboutWebView" destination="6d7-WQ-6UM" id="gD9-cN-mhq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kNi-wl-6cK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1242" y="-218"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -146,10 +196,10 @@
                                     <constraint firstAttribute="height" constant="39" id="QwF-Dz-b6q"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tNh-Jy-xLM">
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tNh-Jy-xLM">
                                 <rect key="frame" x="134" y="20" width="332" height="38"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="C8S-hM-0rB">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="C8S-hM-0rB">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="38"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYV-q4-B4R">
@@ -173,7 +223,7 @@
                                             <constraint firstAttribute="width" constant="60" id="0sT-Sw-f2M"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tL0-oh-9KU">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tL0-oh-9KU">
                                         <rect key="frame" x="60" y="0.0" width="100" height="38"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moves left:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N43-qz-ipC">
@@ -200,7 +250,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TMf-VW-4nu">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TMf-VW-4nu">
                                         <rect key="frame" x="160" y="0.0" width="72" height="38"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxo-nS-IzU">
@@ -224,7 +274,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3PO-Pf-hRw">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3PO-Pf-hRw">
                                         <rect key="frame" x="232" y="0.0" width="100" height="38"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fw8-TF-Jfz">
@@ -367,7 +417,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="416" y="441"/>
+            <point key="canvasLocation" x="448" y="445"/>
         </scene>
     </scenes>
     <resources>
