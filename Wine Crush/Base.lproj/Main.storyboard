@@ -58,14 +58,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wine Crush" translatesAutoresizingMaskIntoConstraints="NO" id="rSn-LY-Wjv">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" placeholderIntrinsicWidth="537" placeholderIntrinsicHeight="36" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7E-FP-SfT">
-                                <rect key="frame" x="40" y="544" width="520" height="36"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
-                                <size key="titleShadowOffset" width="0.0" height="1"/>
-                                <state key="normal" title="Aspirations Winery’s site" backgroundImage="Button">
-                                    <color key="titleShadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="446" placeholderIntrinsicHeight="36" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6f9-lh-QwG">
                                 <rect key="frame" x="40" y="432" width="520" height="36"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
@@ -88,6 +80,17 @@
                                     <segue destination="TaY-9l-TYf" kind="presentation" modalTransitionStyle="partialCurl" id="T8x-aC-66I"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" placeholderIntrinsicWidth="537" placeholderIntrinsicHeight="36" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7E-FP-SfT">
+                                <rect key="frame" x="40" y="538" width="520" height="36"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="Aspirations Winery’s site" backgroundImage="Button">
+                                    <color key="titleShadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="visitWebsiteButtonPressed:" destination="hOo-Cc-4in" eventType="touchUpInside" id="D6V-VF-laX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -108,10 +111,10 @@
                             <constraint firstItem="4pi-kt-M4E" firstAttribute="width" secondItem="Wsp-gy-mfy" secondAttribute="width" constant="-34" id="hEQ-vb-YQ1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6f9-lh-QwG" secondAttribute="trailing" constant="20" id="hGK-OT-Igs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Wsp-gy-mfy" secondAttribute="trailing" constant="20" id="lNi-5x-IzD"/>
-                            <constraint firstItem="w7E-FP-SfT" firstAttribute="top" secondItem="K7c-aU-RkN" secondAttribute="bottom" constant="21" id="peK-Ep-hp5"/>
+                            <constraint firstItem="w7E-FP-SfT" firstAttribute="top" secondItem="K7c-aU-RkN" secondAttribute="bottom" constant="15" id="peK-Ep-hp5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rSn-LY-Wjv" secondAttribute="trailing" constant="-20" id="rdc-RS-aFX"/>
                             <constraint firstItem="4pi-kt-M4E" firstAttribute="top" secondItem="Wsp-gy-mfy" secondAttribute="bottom" constant="20" id="uFh-93-X1G"/>
-                            <constraint firstItem="7sF-YB-zFC" firstAttribute="top" secondItem="w7E-FP-SfT" secondAttribute="bottom" constant="20" id="uRf-Dn-YAx"/>
+                            <constraint firstItem="7sF-YB-zFC" firstAttribute="top" secondItem="w7E-FP-SfT" secondAttribute="bottom" constant="26" id="uRf-Dn-YAx"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">

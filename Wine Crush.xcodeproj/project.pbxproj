@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D41FC36E1CCBFACE00DA5909 /* aspirations_winery_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D41FC36D1CCBFACE00DA5909 /* aspirations_winery_logo.png */; };
+		D41FC3701CCBFE6C00DA5909 /* about_wine_crush.png in Resources */ = {isa = PBXBuildFile; fileRef = D41FC36F1CCBFE6C00DA5909 /* about_wine_crush.png */; };
 		D4552DD31C8234A900F003D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4552DD21C8234A900F003D0 /* AppDelegate.swift */; };
 		D4552DD81C8234A900F003D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4552DD61C8234A900F003D0 /* Main.storyboard */; };
 		D4552DDD1C8234A900F003D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4552DDB1C8234A900F003D0 /* LaunchScreen.storyboard */; };
@@ -63,6 +65,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D41FC36D1CCBFACE00DA5909 /* aspirations_winery_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aspirations_winery_logo.png; sourceTree = "<group>"; };
+		D41FC36F1CCBFE6C00DA5909 /* about_wine_crush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about_wine_crush.png; sourceTree = "<group>"; };
 		D4552DCF1C8234A900F003D0 /* Wine Crush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wine Crush.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4552DD21C8234A900F003D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4552DD71C8234A900F003D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -131,6 +135,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D41FC3691CCBF6CD00DA5909 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				D4FB7BBC1C82ABEA00329EFD /* StartViewController.swift */,
+				D4552DEE1C82366100F003D0 /* GameViewController.swift */,
+				D4DE44FF1C963EF900A6FD9F /* AboutViewController.swift */,
+			);
+			name = Screens;
+			sourceTree = "<group>";
+		};
+		D41FC36A1CCBF6ED00DA5909 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4FB7BBA1C82ABC000329EFD /* SwitchingViewController.swift */,
+				D41FC3691CCBF6CD00DA5909 /* Screens */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D41FC36B1CCBF7CF00DA5909 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D4552DD61C8234A900F003D0 /* Main.storyboard */,
+				D4552DDB1C8234A900F003D0 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		D41FC36C1CCBFABF00DA5909 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				D41FC36D1CCBFACE00DA5909 /* aspirations_winery_logo.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		D4552DC61C8234A900F003D0 = {
 			isa = PBXGroup;
 			children = (
@@ -150,28 +190,24 @@
 		D4552DD11C8234A900F003D0 /* Wine Crush */ = {
 			isa = PBXGroup;
 			children = (
-				D4DE44FF1C963EF900A6FD9F /* AboutViewController.swift */,
-				D4FB7BBC1C82ABEA00329EFD /* StartViewController.swift */,
-				D4FB7BBA1C82ABC000329EFD /* SwitchingViewController.swift */,
-				D4552DD21C8234A900F003D0 /* AppDelegate.swift */,
+				D41FC36B1CCBF7CF00DA5909 /* Storyboards */,
+				D41FC36A1CCBF6ED00DA5909 /* View Controllers */,
 				D4552DE41C82363000F003D0 /* Array2D.swift */,
 				D4552DE61C82363900F003D0 /* Chain.swift */,
 				D4552DE81C82364100F003D0 /* Cookie.swift */,
 				D4552DEA1C82364A00F003D0 /* Extensions.swift */,
 				D4552DEC1C82365500F003D0 /* GameScene.swift */,
-				D4552DEE1C82366100F003D0 /* GameViewController.swift */,
 				D4552DF01C82366B00F003D0 /* Level.swift */,
 				D4552DF21C82369900F003D0 /* Swap.swift */,
 				D4552DF41C8236A300F003D0 /* Tile.swift */,
-				D4552DD61C8234A900F003D0 /* Main.storyboard */,
 				D4FB7BB81C82A19600329EFD /* Images.xcassets */,
 				D4552DF61C82375F00F003D0 /* Grid.atlas */,
 				D4552DF71C82375F00F003D0 /* Sprites.atlas */,
 				D4552DFC1C82379500F003D0 /* Levels */,
 				D4552E111C82379500F003D0 /* Sounds */,
 				D4DE45011C96423B00A6FD9F /* About web page */,
-				D4552DDB1C8234A900F003D0 /* LaunchScreen.storyboard */,
 				D4552DDE1C8234A900F003D0 /* Info.plist */,
+				D4552DD21C8234A900F003D0 /* AppDelegate.swift */,
 			);
 			path = "Wine Crush";
 			sourceTree = "<group>";
@@ -228,6 +264,8 @@
 			isa = PBXGroup;
 			children = (
 				D4DE45021C96426800A6FD9F /* about.html */,
+				D41FC36F1CCBFE6C00DA5909 /* about_wine_crush.png */,
+				D41FC36C1CCBFABF00DA5909 /* images */,
 			);
 			name = "About web page";
 			sourceTree = "<group>";
@@ -308,6 +346,7 @@
 				D4552E221C82379500F003D0 /* Level_18.json in Resources */,
 				D4FB7BC51C84D60F00329EFD /* Level_24.json in Resources */,
 				D4552E2A1C82379500F003D0 /* Level_7.json in Resources */,
+				D41FC3701CCBFE6C00DA5909 /* about_wine_crush.png in Resources */,
 				D4FB7BCB1C85D81500329EFD /* Level_27.json in Resources */,
 				D4552DD81C8234A900F003D0 /* Main.storyboard in Resources */,
 				D4552E311C82379500F003D0 /* Ka-Ching.wav in Resources */,
@@ -315,6 +354,7 @@
 				D4552E271C82379500F003D0 /* Level_4.json in Resources */,
 				D4552E201C82379500F003D0 /* Level_16.json in Resources */,
 				D4552E1E1C82379500F003D0 /* Level_14.json in Resources */,
+				D41FC36E1CCBFACE00DA5909 /* aspirations_winery_logo.png in Resources */,
 				D4552E2D1C82379500F003D0 /* Chomp.wav in Resources */,
 				D4FB7BC31C84D5A600329EFD /* Level_23.json in Resources */,
 				D4552E2F1C82379500F003D0 /* Drip.wav in Resources */,
