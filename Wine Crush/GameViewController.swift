@@ -102,7 +102,7 @@ class GameViewController: UIViewController {
     
     // Let's start the game!
     gameScore = 0
-    levelNumber = 24
+    levelNumber = 1
     
     beginLevel()
   }
@@ -287,7 +287,7 @@ class GameViewController: UIViewController {
   func fadeOutBackgroundMusic() {
     if backgroundMusic.volume > 0.1 {
       backgroundMusic.volume -= 0.1
-      performSelector("fadeOutBackgroundMusic", withObject: nil, afterDelay: 0.1)
+      performSelector(#selector(fadeOutBackgroundMusic), withObject: nil, afterDelay: 0.1)
     }
     else {
       backgroundMusic.stop()
