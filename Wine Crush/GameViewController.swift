@@ -26,7 +26,7 @@ class GameViewController: UIViewController {
   @IBOutlet weak var noticeTitleLabel: UILabel!
   @IBOutlet weak var noticeMessageLabel: UILabel!
   
-  let maximumLevelDefined = 27
+  let maximumLevelDefined = 29
   let maximumBackgroundDefined = 4
   
   // The scene draws the tiles and cookie sprites, and handles swipes.
@@ -35,10 +35,10 @@ class GameViewController: UIViewController {
   // The level contains the tiles, the cookies, and most of the gameplay logic.
   // Needs to be ! because it's not set in init() but in viewDidLoad().
   var level: Level!
-  var levelNumber = 1
+  var levelNumber = 29
 
   var movesLeft = 0
-  var gameScore = 999999
+  var gameScore = 0
   var levelScore = 0
 
   var hintGiven = false
@@ -101,9 +101,6 @@ class GameViewController: UIViewController {
     backgroundMusic.play()
     
     // Let's start the game!
-    gameScore = 0
-    levelNumber = 1
-    
     beginLevel()
   }
 

@@ -56,6 +56,8 @@
 		D476AE6F1CCC1A4400B7E884 /* quit_button.png in Resources */ = {isa = PBXBuildFile; fileRef = D476AE6C1CCC1A4400B7E884 /* quit_button.png */; };
 		D476AE701CCC1A4400B7E884 /* hint_button.png in Resources */ = {isa = PBXBuildFile; fileRef = D476AE6D1CCC1A4400B7E884 /* hint_button.png */; };
 		D476AE711CCC1A4400B7E884 /* shuffle_button.png in Resources */ = {isa = PBXBuildFile; fileRef = D476AE6E1CCC1A4400B7E884 /* shuffle_button.png */; };
+		D476AE731CCC73AB00B7E884 /* Level_28.json in Resources */ = {isa = PBXBuildFile; fileRef = D476AE721CCC73AB00B7E884 /* Level_28.json */; };
+		D476AE751CCC758300B7E884 /* Level_29.json in Resources */ = {isa = PBXBuildFile; fileRef = D476AE741CCC758300B7E884 /* Level_29.json */; };
 		D4DE45001C963EF900A6FD9F /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DE44FF1C963EF900A6FD9F /* AboutViewController.swift */; };
 		D4DE45031C96426800A6FD9F /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = D4DE45021C96426800A6FD9F /* about.html */; };
 		D4FB7BB91C82A19600329EFD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4FB7BB81C82A19600329EFD /* Images.xcassets */; };
@@ -122,6 +124,8 @@
 		D476AE6C1CCC1A4400B7E884 /* quit_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quit_button.png; sourceTree = "<group>"; };
 		D476AE6D1CCC1A4400B7E884 /* hint_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hint_button.png; sourceTree = "<group>"; };
 		D476AE6E1CCC1A4400B7E884 /* shuffle_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuffle_button.png; sourceTree = "<group>"; };
+		D476AE721CCC73AB00B7E884 /* Level_28.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_28.json; sourceTree = "<group>"; };
+		D476AE741CCC758300B7E884 /* Level_29.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_29.json; sourceTree = "<group>"; };
 		D4DE44FF1C963EF900A6FD9F /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = ../AboutViewController.swift; sourceTree = "<group>"; };
 		D4DE45021C96426800A6FD9F /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		D4FB7BB81C82A19600329EFD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -260,6 +264,8 @@
 				D4FB7BC61C84D74500329EFD /* Level_25.json */,
 				D4FB7BC81C84D8B100329EFD /* Level_26.json */,
 				D4FB7BCA1C85D81500329EFD /* Level_27.json */,
+				D476AE721CCC73AB00B7E884 /* Level_28.json */,
+				D476AE741CCC758300B7E884 /* Level_29.json */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -386,12 +392,14 @@
 				D476AE6B1CCC16F600B7E884 /* moves_left_target_explained.png in Resources */,
 				D4552E281C82379500F003D0 /* Level_5.json in Resources */,
 				D4552E1B1C82379500F003D0 /* Level_11.json in Resources */,
+				D476AE731CCC73AB00B7E884 /* Level_28.json in Resources */,
 				D4FB7BC91C84D8B100329EFD /* Level_26.json in Resources */,
 				D4552E1A1C82379500F003D0 /* Level_10.json in Resources */,
 				D4552E1C1C82379500F003D0 /* Level_12.json in Resources */,
 				D4552DF91C82375F00F003D0 /* Grid.atlas in Resources */,
 				D476AE691CCC134A00B7E884 /* horizontal_match_example.gif in Resources */,
 				D4FB7BC11C84D4E500329EFD /* Level_22.json in Resources */,
+				D476AE751CCC758300B7E884 /* Level_29.json in Resources */,
 				D476AE701CCC1A4400B7E884 /* hint_button.png in Resources */,
 				D4552DFA1C82375F00F003D0 /* Sprites.atlas in Resources */,
 			);
