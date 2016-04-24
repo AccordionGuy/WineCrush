@@ -50,6 +50,12 @@
 		D4552E311C82379500F003D0 /* Ka-Ching.wav in Resources */ = {isa = PBXBuildFile; fileRef = D4552E161C82379500F003D0 /* Ka-Ching.wav */; };
 		D4552E321C82379500F003D0 /* Mining by Moonlight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D4552E171C82379500F003D0 /* Mining by Moonlight.mp3 */; };
 		D4552E331C82379500F003D0 /* Scrape.wav in Resources */ = {isa = PBXBuildFile; fileRef = D4552E181C82379500F003D0 /* Scrape.wav */; };
+		D476AE681CCC134A00B7E884 /* vertical_match_example.gif in Resources */ = {isa = PBXBuildFile; fileRef = D476AE661CCC134A00B7E884 /* vertical_match_example.gif */; };
+		D476AE691CCC134A00B7E884 /* horizontal_match_example.gif in Resources */ = {isa = PBXBuildFile; fileRef = D476AE671CCC134A00B7E884 /* horizontal_match_example.gif */; };
+		D476AE6B1CCC16F600B7E884 /* moves_left_target_explained.png in Resources */ = {isa = PBXBuildFile; fileRef = D476AE6A1CCC16F600B7E884 /* moves_left_target_explained.png */; };
+		D476AE6F1CCC1A4400B7E884 /* quit_button.png in Resources */ = {isa = PBXBuildFile; fileRef = D476AE6C1CCC1A4400B7E884 /* quit_button.png */; };
+		D476AE701CCC1A4400B7E884 /* hint_button.png in Resources */ = {isa = PBXBuildFile; fileRef = D476AE6D1CCC1A4400B7E884 /* hint_button.png */; };
+		D476AE711CCC1A4400B7E884 /* shuffle_button.png in Resources */ = {isa = PBXBuildFile; fileRef = D476AE6E1CCC1A4400B7E884 /* shuffle_button.png */; };
 		D4DE45001C963EF900A6FD9F /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DE44FF1C963EF900A6FD9F /* AboutViewController.swift */; };
 		D4DE45031C96426800A6FD9F /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = D4DE45021C96426800A6FD9F /* about.html */; };
 		D4FB7BB91C82A19600329EFD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4FB7BB81C82A19600329EFD /* Images.xcassets */; };
@@ -110,6 +116,12 @@
 		D4552E161C82379500F003D0 /* Ka-Ching.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Ka-Ching.wav"; sourceTree = "<group>"; };
 		D4552E171C82379500F003D0 /* Mining by Moonlight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mining by Moonlight.mp3"; sourceTree = "<group>"; };
 		D4552E181C82379500F003D0 /* Scrape.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Scrape.wav; sourceTree = "<group>"; };
+		D476AE661CCC134A00B7E884 /* vertical_match_example.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = vertical_match_example.gif; sourceTree = "<group>"; };
+		D476AE671CCC134A00B7E884 /* horizontal_match_example.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = horizontal_match_example.gif; sourceTree = "<group>"; };
+		D476AE6A1CCC16F600B7E884 /* moves_left_target_explained.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moves_left_target_explained.png; sourceTree = "<group>"; };
+		D476AE6C1CCC1A4400B7E884 /* quit_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quit_button.png; sourceTree = "<group>"; };
+		D476AE6D1CCC1A4400B7E884 /* hint_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hint_button.png; sourceTree = "<group>"; };
+		D476AE6E1CCC1A4400B7E884 /* shuffle_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuffle_button.png; sourceTree = "<group>"; };
 		D4DE44FF1C963EF900A6FD9F /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = ../AboutViewController.swift; sourceTree = "<group>"; };
 		D4DE45021C96426800A6FD9F /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		D4FB7BB81C82A19600329EFD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -167,6 +179,12 @@
 			isa = PBXGroup;
 			children = (
 				D41FC36D1CCBFACE00DA5909 /* aspirations_winery_logo.png */,
+				D476AE661CCC134A00B7E884 /* vertical_match_example.gif */,
+				D476AE671CCC134A00B7E884 /* horizontal_match_example.gif */,
+				D476AE6A1CCC16F600B7E884 /* moves_left_target_explained.png */,
+				D476AE6E1CCC1A4400B7E884 /* shuffle_button.png */,
+				D476AE6D1CCC1A4400B7E884 /* hint_button.png */,
+				D476AE6C1CCC1A4400B7E884 /* quit_button.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -338,8 +356,10 @@
 				D4552E1D1C82379500F003D0 /* Level_13.json in Resources */,
 				D4DE45031C96426800A6FD9F /* about.html in Resources */,
 				D4FB7BC71C84D74500329EFD /* Level_25.json in Resources */,
+				D476AE681CCC134A00B7E884 /* vertical_match_example.gif in Resources */,
 				D4552E211C82379500F003D0 /* Level_17.json in Resources */,
 				D4552DDD1C8234A900F003D0 /* LaunchScreen.storyboard in Resources */,
+				D476AE711CCC1A4400B7E884 /* shuffle_button.png in Resources */,
 				D4552E261C82379500F003D0 /* Level_3.json in Resources */,
 				D4552E301C82379500F003D0 /* Error.wav in Resources */,
 				D4552E291C82379500F003D0 /* Level_6.json in Resources */,
@@ -355,6 +375,7 @@
 				D4552E201C82379500F003D0 /* Level_16.json in Resources */,
 				D4552E1E1C82379500F003D0 /* Level_14.json in Resources */,
 				D41FC36E1CCBFACE00DA5909 /* aspirations_winery_logo.png in Resources */,
+				D476AE6F1CCC1A4400B7E884 /* quit_button.png in Resources */,
 				D4552E2D1C82379500F003D0 /* Chomp.wav in Resources */,
 				D4FB7BC31C84D5A600329EFD /* Level_23.json in Resources */,
 				D4552E2F1C82379500F003D0 /* Drip.wav in Resources */,
@@ -362,13 +383,16 @@
 				D4552E2C1C82379500F003D0 /* Level_9.json in Resources */,
 				D4552E251C82379500F003D0 /* Level_20.json in Resources */,
 				D4552E331C82379500F003D0 /* Scrape.wav in Resources */,
+				D476AE6B1CCC16F600B7E884 /* moves_left_target_explained.png in Resources */,
 				D4552E281C82379500F003D0 /* Level_5.json in Resources */,
 				D4552E1B1C82379500F003D0 /* Level_11.json in Resources */,
 				D4FB7BC91C84D8B100329EFD /* Level_26.json in Resources */,
 				D4552E1A1C82379500F003D0 /* Level_10.json in Resources */,
 				D4552E1C1C82379500F003D0 /* Level_12.json in Resources */,
 				D4552DF91C82375F00F003D0 /* Grid.atlas in Resources */,
+				D476AE691CCC134A00B7E884 /* horizontal_match_example.gif in Resources */,
 				D4FB7BC11C84D4E500329EFD /* Level_22.json in Resources */,
+				D476AE701CCC1A4400B7E884 /* hint_button.png in Resources */,
 				D4552DFA1C82375F00F003D0 /* Sprites.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

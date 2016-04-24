@@ -90,7 +90,7 @@ class GameScene: SKScene {
     swipeFromColumn = nil
     swipeFromRow = nil
 
-    // Pre-load the label font so prevent delays during game play.
+    // Pre-load the label font to prevent delays during game play.
     SKLabelNode(fontNamed: "MarkerFelt-Thin")
     SKLabelNode(fontNamed: "MarkerFelt-Wide")
   }
