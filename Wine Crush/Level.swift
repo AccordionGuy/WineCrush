@@ -245,13 +245,38 @@ class Level {
     // the loop will terminate because it is != cookieType. (So there is no
     // need to check whether cookies[i, row] != nil.)
     var horzLength = 1
-    for var i = column - 1; i >= 0 && cookies[i, row]?.cookieType == cookieType; --i, ++horzLength { }
-    for var i = column + 1; i < NumColumns && cookies[i, row]?.cookieType == cookieType; ++i, ++horzLength { }
-    if horzLength >= 3 { return true }
 
+    // Left
+    var i = column - 1
+    while i >= 0 && cookies[i, row]?.cookieType == cookieType {
+      i -= 1
+      horzLength += 1
+    }
+    
+    // Right
+    i = column + 1
+    while i < NumColumns && cookies[i, row]?.cookieType == cookieType {
+      i += 1
+      horzLength += 1
+    }
+    if horzLength >= 3 { return true }
+    
+    // Vertical chain check
     var vertLength = 1
-    for var i = row - 1; i >= 0 && cookies[column, i]?.cookieType == cookieType; --i, ++vertLength { }
-    for var i = row + 1; i < NumRows && cookies[column, i]?.cookieType == cookieType; ++i, ++vertLength { }
+    
+    // Down
+    i = row - 1
+    while i >= 0 && cookies[column, i]?.cookieType == cookieType {
+      i -= 1
+      vertLength += 1
+    }
+    
+    // Up
+    i = row + 1
+    while i < NumRows && cookies[column, i]?.cookieType == cookieType {
+      i += 1
+      vertLength += 1
+    }
     return vertLength >= 3
   }
 
@@ -287,8 +312,8 @@ class Level {
     for row in 0..<NumRows {
 
       // Don't need to look at last two columns.
-      // Note: for-loop without increment.
-      for var column = 0; column < NumColumns - 2 ; {
+      var column = 0
+      while column < NumColumns - 2 {
 
         // If there is a cookie/tile at this position...
         if let cookie = cookies[column, row] {
@@ -302,9 +327,9 @@ class Level {
             let chain = Chain(chainType: .Horizontal)
             repeat {
               chain.addCookie(cookies[column, row]!)
-              ++column
-            }
-            while column < NumColumns && cookies[column, row]?.cookieType == matchType
+              column += 1
+            } while column < NumColumns &&
+                    cookies[column, row]?.cookieType == matchType
 
             set.insert(chain)
             continue
@@ -312,7 +337,7 @@ class Level {
         }
 
         // Cookie did not match or empty tile, so skip over it.
-        ++column
+        column += 1
       }
     }
     return set
@@ -323,7 +348,8 @@ class Level {
     var set = Set<Chain>()
 
     for column in 0..<NumColumns {
-      for var row = 0; row < NumRows - 2; {
+      var row = 0
+      while row < NumRows - 2 {
         if let cookie = cookies[column, row] {
           let matchType = cookie.cookieType
 
@@ -333,7 +359,7 @@ class Level {
             let chain = Chain(chainType: .Vertical)
             repeat {
               chain.addCookie(cookies[column, row]!)
-              ++row
+              row += 1
             }
             while row < NumRows && cookies[column, row]?.cookieType == matchType
 
@@ -341,7 +367,7 @@ class Level {
             continue
           }
         }
-        ++row
+        row += 1
       }
     }
     return set
@@ -359,7 +385,7 @@ class Level {
     // 3-chain is 60 pts, 4-chain is 120, 5-chain is 180, and so on
     for chain in chains {
       chain.score = 60 * (chain.length - 2) * comboMultiplier
-      ++comboMultiplier
+      comboMultiplier += 1
     }
   }
 
@@ -435,7 +461,8 @@ class Level {
 
       // This time scan from top to bottom. We can end when we've found the
       // first cookie.
-      for var row = NumRows - 1; row >= 0 && cookies[column, row] == nil; --row {
+      var row = NumRows - 1
+      while row >= 0 && cookies[column, row] == nil {
 
         // Found a hole?
         if tiles[column, row] != nil {
@@ -454,6 +481,8 @@ class Level {
           cookies[column, row] = cookie
           array.append(cookie)
         }
+        
+        row -= 1
       }
 
       if !array.isEmpty {
@@ -477,7 +506,8 @@ class Level {
     var line: String
     print("Cookies")
     print("---------------------------------------")
-    for var row = (NumRows - 1); row >= 0; --row {
+    var row = NumRows - 1
+    while row >= 0 {
       line = "\(row): "
       for column in 0 ..< NumColumns {
         if let cookie = cookies[column, row] {
@@ -488,6 +518,7 @@ class Level {
         }
       }
       print(line)
+      row -= 1
     }
     print("---------------------------------------")
     
