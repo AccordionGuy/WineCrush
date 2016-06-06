@@ -35,7 +35,7 @@ class GameViewController: UIViewController {
   // The level contains the tiles, the cookies, and most of the gameplay logic.
   // Needs to be ! because it's not set in init() but in viewDidLoad().
   var level: Level!
-  var levelNumber = 29
+  var levelNumber = 1
 
   var movesLeft = 0
   var gameScore = 0
@@ -101,6 +101,7 @@ class GameViewController: UIViewController {
     backgroundMusic.play()
     
     // Let's start the game!
+    levelNumber = 1
     beginLevel()
   }
 
@@ -348,6 +349,7 @@ class GameViewController: UIViewController {
   }
   
   @IBAction func quitButtonPressed(_: AnyObject) {
+//    increaseLevel()
     let alertController = UIAlertController(
       title: "Quit the game?",
       message: "Are you sure you want to quit playing?",
