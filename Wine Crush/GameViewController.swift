@@ -101,6 +101,7 @@ class GameViewController: UIViewController {
     backgroundMusic.play()
     
     // Let's start the game!
+    gameScore = 0
     levelNumber = 1
     beginLevel()
   }
@@ -324,6 +325,7 @@ class GameViewController: UIViewController {
 
   @IBAction func shuffleButtonPressed(_: AnyObject) {
     shuffle()
+    hintGiven = false
     hintButton.enabled = true
 
     // Pressing the shuffle button costs a move.
