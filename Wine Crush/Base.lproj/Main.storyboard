@@ -157,7 +157,7 @@
                                     <color key="titleShadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButtonPressed:" destination="TaY-9l-TYf" eventType="touchUpInside" id="L3i-fG-qrz"/>
+                                    <action selector="backButtonPressed:" destination="TaY-9l-TYf" eventType="touchUpInside" id="v3v-ZL-BCv"/>
                                 </connections>
                             </button>
                         </subviews>
