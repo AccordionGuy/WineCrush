@@ -305,7 +305,7 @@ class GameViewController: UIViewController {
   
   func showNoPossibleSwaps() {
 //    noticePanel.hidden = false
-    showNoticeView(title: "No Possible Swaps!", message: "Use the Shuffle button")
+    showNoticeView(title: "No Possible Swaps!", message: "Use the Shuffle button.")
     scene.userInteractionEnabled = false
     shuffleButton.enabled = false
     hintButton.enabled = false
