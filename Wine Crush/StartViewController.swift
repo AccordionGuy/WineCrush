@@ -9,32 +9,12 @@
 
 import UIKit
 
-enum WebPageType: Int, CustomStringConvertible {
-  case AboutGame = 0
-  case AboutAspirations
-  
-  var fileName: String {
-    let fileNames = [
-      "about_game",
-      "about_aspirations"
-    ]
-    return fileNames[rawValue]
-  }
-  
-  var description: String {
-    return fileName
-  }
-}
-
 class StartViewController: UIViewController {
   
   var switchingViewController: SwitchingViewController!
 
   @IBOutlet weak var aboutGameButton: UIButton!
-  @IBOutlet weak var aboutAspirationsButton: UIButton!
   
-  var selectedPage: WebPageType!
-
   override func viewDidLoad() {
     super.viewDidLoad()
   }
@@ -48,12 +28,6 @@ class StartViewController: UIViewController {
   }
   
   @IBAction func aboutButtonPressed(sender: UIButton) {
-    if sender == aboutGameButton {
-      selectedPage = .AboutGame
-    }
-    else {
-      selectedPage = .AboutAspirations
-    }
     performSegueWithIdentifier("AboutSegue", sender: self)
   }
   
@@ -61,18 +35,6 @@ class StartViewController: UIViewController {
     UIApplication.sharedApplication().openURL(NSURL(string: "http://www.aspirationswinery.com/")!)
   }
   
-  @IBAction func unwindToMenu(segue: UIStoryboardSegue) {
-  }
-    
-  
-
-//  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//    if segue.identifier == "AboutSegue" {
-//      let aboutViewController = segue.destinationViewController as! AboutViewController
-//      aboutViewController.webPage = selectedPage
-//    }
-//  }
-
 }
 
 // This code is released under the MIT license and contains code from
