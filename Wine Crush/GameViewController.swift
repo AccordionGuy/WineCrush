@@ -258,7 +258,7 @@ class GameViewController: UIViewController {
     }
     else {
       theTitle = "Level Complete"
-      theMessage = "Get ready for the next one"
+      theMessage = "Get ready for the next one..."
     }
     showNoticeView(title: theTitle, message: theMessage)
     view.userInteractionEnabled = false
