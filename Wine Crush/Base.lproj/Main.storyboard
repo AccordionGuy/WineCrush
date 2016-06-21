@@ -77,7 +77,7 @@
                                     <color key="titleShadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="TaY-9l-TYf" kind="presentation" modalTransitionStyle="partialCurl" id="T8x-aC-66I"/>
+                                    <action selector="aboutButtonPressed:" destination="hOo-Cc-4in" eventType="touchUpInside" id="0MD-CD-DlY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" placeholderIntrinsicWidth="537" placeholderIntrinsicHeight="36" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7E-FP-SfT">
@@ -128,57 +128,61 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="aboutGameButton" destination="K7c-aU-RkN" id="yYq-93-KxE"/>
+                        <segue destination="Q7H-DY-fnW" kind="presentation" identifier="AboutSegue" modalTransitionStyle="flipHorizontal" id="6wH-z0-r2C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JO9-23-YLK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="448" y="-218"/>
         </scene>
         <!--About View Controller-->
-        <scene sceneID="Jv2-N0-MqG">
+        <scene sceneID="V35-6j-96V">
             <objects>
-                <viewController id="TaY-9l-TYf" customClass="AboutViewController" customModule="Wine_Crush" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Q7H-DY-fnW" customClass="AboutViewController" customModule="Wine_Crush" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gmN-HV-22l"/>
-                        <viewControllerLayoutGuide type="bottom" id="G4F-ZY-wlj"/>
+                        <viewControllerLayoutGuide type="top" id="hiM-QQ-LTC"/>
+                        <viewControllerLayoutGuide type="bottom" id="x95-9k-H5b"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ioF-Nd-b83">
+                    <view key="view" contentMode="scaleToFill" id="W6J-Mv-dFi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6d7-WQ-6UM">
-                                <rect key="frame" x="20" y="20" width="560" height="506"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UBp-ff-jVG">
+                                <rect key="frame" x="0.0" y="30" width="600" height="494"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sd-tW-1yf">
-                                <rect key="frame" x="40" y="544" width="520" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5A-qR-BAM">
+                                <rect key="frame" x="20" y="544" width="560" height="36"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
                                 <size key="titleShadowOffset" width="0.0" height="1"/>
-                                <state key="normal" title="Back to main menu" backgroundImage="Button">
-                                    <color key="titleShadowColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Go back to the start page" backgroundImage="Button">
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButtonPressed:" destination="TaY-9l-TYf" eventType="touchUpInside" id="v3v-ZL-BCv"/>
+                                    <action selector="backButtonPressed:" destination="Q7H-DY-fnW" eventType="touchUpInside" id="Yle-cg-kaM"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7sd-tW-1yf" firstAttribute="centerX" secondItem="ioF-Nd-b83" secondAttribute="centerX" id="OH8-dM-h8o"/>
-                            <constraint firstItem="6d7-WQ-6UM" firstAttribute="leading" secondItem="ioF-Nd-b83" secondAttribute="leadingMargin" id="Uuf-qz-YTN"/>
-                            <constraint firstItem="7sd-tW-1yf" firstAttribute="top" secondItem="6d7-WQ-6UM" secondAttribute="bottom" constant="18" id="a0m-3d-3pB"/>
-                            <constraint firstItem="6d7-WQ-6UM" firstAttribute="centerX" secondItem="7sd-tW-1yf" secondAttribute="centerX" id="dIJ-jP-1Zk"/>
-                            <constraint firstItem="G4F-ZY-wlj" firstAttribute="top" secondItem="7sd-tW-1yf" secondAttribute="bottom" constant="20" id="l5i-eX-p03"/>
-                            <constraint firstItem="6d7-WQ-6UM" firstAttribute="top" secondItem="gmN-HV-22l" secondAttribute="bottom" id="n34-gq-7vw"/>
-                            <constraint firstItem="7sd-tW-1yf" firstAttribute="leading" secondItem="ioF-Nd-b83" secondAttribute="leadingMargin" constant="20" id="oph-ri-QiA"/>
+                            <constraint firstItem="UBp-ff-jVG" firstAttribute="top" secondItem="hiM-QQ-LTC" secondAttribute="bottom" constant="10" id="A6x-qA-5Lk"/>
+                            <constraint firstAttribute="trailing" secondItem="UBp-ff-jVG" secondAttribute="trailing" id="HC6-Lp-Bye"/>
+                            <constraint firstItem="UBp-ff-jVG" firstAttribute="leading" secondItem="W6J-Mv-dFi" secondAttribute="leading" id="UA5-iV-D9l"/>
+                            <constraint firstItem="A5A-qR-BAM" firstAttribute="top" secondItem="UBp-ff-jVG" secondAttribute="bottom" constant="20" id="naD-Ms-tIl"/>
+                            <constraint firstAttribute="trailing" secondItem="A5A-qR-BAM" secondAttribute="trailing" constant="20" id="pXz-EC-sOU"/>
+                            <constraint firstItem="A5A-qR-BAM" firstAttribute="leading" secondItem="W6J-Mv-dFi" secondAttribute="leading" constant="20" id="stl-Re-vmz"/>
+                            <constraint firstItem="x95-9k-H5b" firstAttribute="top" secondItem="A5A-qR-BAM" secondAttribute="bottom" constant="20" id="tE3-zj-q97"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="aboutWebView" destination="6d7-WQ-6UM" id="gD9-cN-mhq"/>
+                        <outlet property="aboutWebView" destination="UBp-ff-jVG" id="S2p-Tt-RGj"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kNi-wl-6cK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jqi-6O-jsG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1242" y="-218"/>
+            <point key="canvasLocation" x="1214" y="-220"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
