@@ -41,6 +41,7 @@ class GameViewController: UIViewController {
   var movesLeft = 0
   var gameScore = 0
   var levelScore = 0
+  var targetScore = 0
 
   var hintGiven = false
 
@@ -103,7 +104,7 @@ class GameViewController: UIViewController {
     
     // Let's start the game!
     gameScore = 0
-    levelNumber = 1
+    levelNumber = 29
     beginLevel()
   }
 
@@ -118,7 +119,15 @@ class GameViewController: UIViewController {
     level = Level(filename: "Level_\(levelToLoad)")
     print("Loaded level \(levelNumber)")
     level.resetComboMultiplier()
-    movesLeft = level.maximumMoves
+    
+    // The game gets tougher as you complete a cycle of levels.
+    // With each new cycle, you get:
+    // - One less move
+    // - 60 points added to the target score
+    let cycle = (levelNumber - 1) / maximumLevelDefined
+    movesLeft = level.maximumMoves - cycle
+    targetScore = level.targetScore + 60 * cycle
+    
     updateLabels()
     
     let backgroundToLoad = ((levelNumber - 1) % maximumBackgroundDefined) + 1
@@ -220,8 +229,8 @@ class GameViewController: UIViewController {
     movesLabel.text = String(format: "%ld", movesLeft)
     
     let pointsToGo: Int
-    if levelScore < level.targetScore {
-      pointsToGo = level.targetScore - levelScore
+    if levelScore < targetScore {
+      pointsToGo = targetScore - levelScore
     }
     else {
       pointsToGo = 0
@@ -236,7 +245,7 @@ class GameViewController: UIViewController {
     movesLeft -= 1
     updateLabels()
 
-    if levelScore >= level.targetScore {
+    if levelScore >= targetScore {
 //      noticePanel.image = UIImage(named: "LevelComplete")
       showEndOfPlay(gameOver: false)
     } else if movesLeft == 0 {
