@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import AVFoundation.AVAudioSession
 
 class SwitchingViewController: UIViewController {
   
@@ -27,6 +28,14 @@ class SwitchingViewController: UIViewController {
     startViewController.switchingViewController = self
     startViewController.view.frame = view.frame
     switchViewController(from: nil, to: startViewController)
+    
+    // Setting this app's audio session category to ambient has the results:
+    // - Audio from other apps mixes with this app's audio
+    // - Audio from this app is silenced when:
+    //    - The screen is locked
+    //    - The silent switch (ring/silent switch on the iPhone) is set to silent
+    try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient,
+                                                     withOptions: .MixWithOthers)
   }
 
 //  override func didReceiveMemoryWarning() {
