@@ -17,22 +17,22 @@ let NumRows = 9
 class Level {
   
   // The 2D array that keeps track of where the Cookies are.
-  private var cookies = Array2D<Cookie>(columns: NumColumns, rows: NumRows)
+  fileprivate var cookies = Array2D<Cookie>(columns: NumColumns, rows: NumRows)
 
   // The 2D array that contains the layout of the level.
-  private var tiles = Array2D<Tile>(columns: NumColumns, rows: NumRows)
+  fileprivate var tiles = Array2D<Tile>(columns: NumColumns, rows: NumRows)
 
   // The list of swipes that result in a valid swap. Used to determine whether
   // the player can make a certain swap, whether the board needs to be shuffled,
   // and to generate hints.
-  private var possibleSwaps = Set<Swap>()
+  fileprivate var possibleSwaps = Set<Swap>()
 
   var targetScore = 0
   var maximumMoves = 0
 
   // The second chain gets twice its regular score, the third chain three times,
   // and so on. This multiplier is reset for every next turn.
-  private var comboMultiplier = 0
+  fileprivate var comboMultiplier = 0
 
   // Create a level by loading it from a file.
   init(filename: String) {
@@ -46,14 +46,14 @@ class Level {
       if let tilesArray: AnyObject = dictionary["tiles"] {
 
         // Loop through the rows...
-        for (row, rowArray) in (tilesArray as! [[Int]]).enumerate() {
+        for (row, rowArray) in (tilesArray as! [[Int]]).enumerated() {
 
           // Note: In Sprite Kit (0,0) is at the bottom of the screen,
           // so we need to read this file upside down.
           let tileRow = NumRows - row - 1
 
           // Loop through the columns in the current row...
-          for (column, value) in rowArray.enumerate() {
+          for (column, value) in rowArray.enumerated() {
 
             // If the value is 1, create a tile object.
             if value == 1 {
@@ -100,7 +100,7 @@ class Level {
     return set
   }
 
-  private func createInitialCookies() -> Set<Cookie> {
+  fileprivate func createInitialCookies() -> Set<Cookie> {
     var set = Set<Cookie>()
 
     // Loop through the rows and columns of the 2D array. Note that column 0,
@@ -140,14 +140,14 @@ class Level {
   // MARK: Querying the Level
 
   // Returns the cookie at the specified column and row, or nil when there is none.
-  func cookieAtColumn(column: Int, row: Int) -> Cookie? {
+  func cookieAtColumn(_ column: Int, row: Int) -> Cookie? {
     assert(column >= 0 && column < NumColumns)
     assert(row >= 0 && row < NumRows)
     return cookies[column, row]
   }
 
   // Determines whether there's a tile at the specified column and row.
-  func tileAtColumn(column: Int, row: Int) -> Tile? {
+  func tileAtColumn(_ column: Int, row: Int) -> Tile? {
     assert(column >= 0 && column < NumColumns)
     assert(row >= 0 && row < NumRows)
     return tiles[column, row]
@@ -155,14 +155,14 @@ class Level {
 
   // Determines whether the suggested swap is a valid one, i.e. it results in at
   // least one new chain of 3 or more cookies of the same type.
-  func isPossibleSwap(swap: Swap) -> Bool {
+  func isPossibleSwap(_ swap: Swap) -> Bool {
     return possibleSwaps.contains(swap)
   }
 
   // MARK: Swapping
 
   // Swaps the positions of the two cookies from the Swap object.
-  func performSwap(swap: Swap) {
+  func performSwap(_ swap: Swap) {
     // Need to make temporary copies of these because they get overwritten.
     let columnA = swap.cookieA.column
     let rowA = swap.cookieA.row
@@ -240,7 +240,7 @@ class Level {
     possibleSwaps = set
   }
 
-  private func hasChainAtColumn(column: Int, row: Int) -> Bool {
+  fileprivate func hasChainAtColumn(_ column: Int, row: Int) -> Bool {
     // Here we do ! because we know there is a cookie here
     let cookieType = cookies[column, row]!.cookieType
 
@@ -307,7 +307,7 @@ class Level {
     return horizontalChains.union(verticalChains)
   }
 
-  private func detectHorizontalMatches() -> Set<Chain> {
+  fileprivate func detectHorizontalMatches() -> Set<Chain> {
     // Contains the Cookie objects that were part of a horizontal chain.
     // These cookies must be removed.
     var set = Set<Chain>()
@@ -327,7 +327,7 @@ class Level {
              cookies[column + 2, row]?.cookieType == matchType {
 
             // ...then add all the cookies from this chain into the set.
-            let chain = Chain(chainType: .Horizontal)
+            let chain = Chain(chainType: .horizontal)
             repeat {
               chain.addCookie(cookies[column, row]!)
               column += 1
@@ -347,7 +347,7 @@ class Level {
   }
 
   // Same as the horizontal version but steps through the array differently.
-  private func detectVerticalMatches() -> Set<Chain> {
+  fileprivate func detectVerticalMatches() -> Set<Chain> {
     var set = Set<Chain>()
 
     for column in 0..<NumColumns {
@@ -359,7 +359,7 @@ class Level {
           if cookies[column, row + 1]?.cookieType == matchType &&
              cookies[column, row + 2]?.cookieType == matchType {
 
-            let chain = Chain(chainType: .Vertical)
+            let chain = Chain(chainType: .vertical)
             repeat {
               chain.addCookie(cookies[column, row]!)
               row += 1
@@ -376,7 +376,7 @@ class Level {
     return set
   }
 
-  private func removeCookies(chains: Set<Chain>) {
+  fileprivate func removeCookies(_ chains: Set<Chain>) {
     for chain in chains {
       for cookie in chain.cookies {
         cookies[cookie.column, cookie.row] = nil
@@ -384,7 +384,7 @@ class Level {
     }
   }
 
-  private func calculateScores(chains: Set<Chain>) {
+  fileprivate func calculateScores(_ chains: Set<Chain>) {
     // 3-chain is 60 pts, 4-chain is 120, 5-chain is 180, and so on
     for chain in chains {
       chain.score = 60 * (chain.length - 2) * comboMultiplier
@@ -453,7 +453,7 @@ class Level {
   // with the new Cookie objects. Cookies are ordered from the top down.
   func topUpCookies() -> [[Cookie]] {
     var columns = [[Cookie]]()
-    var cookieType: CookieType = .Unknown
+    var cookieType: CookieType = .unknown
 
     // Detect where we have to add the new cookies. If a column has X holes,
     // then it also needs X new cookies. The holes are all on the top of the

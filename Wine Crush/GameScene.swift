@@ -64,7 +64,7 @@ class GameScene: SKScene {
 
     // Add a new node that is the container for all other layers on the playing
     // field. This gameLayer is also centered in the screen.
-    gameLayer.hidden = true
+    gameLayer.isHidden = true
     addChild(gameLayer)
 
     let layerPosition = CGPoint(
@@ -98,7 +98,7 @@ class GameScene: SKScene {
     SKLabelNode(fontNamed: "MarkerFelt-Wide")
   }
 
-  func addSpritesForCookies(cookies: Set<Cookie>) {
+  func addSpritesForCookies(_ cookies: Set<Cookie>) {
     for cookie in cookies {
       
       print("(\(cookie.column), \(cookie.row)): \(cookie.cookieType.spriteName)")
@@ -114,12 +114,12 @@ class GameScene: SKScene {
       sprite.xScale = 0.5
       sprite.yScale = 0.5
 
-      sprite.runAction(
+      sprite.run(
         SKAction.sequence([
-          SKAction.waitForDuration(0.25, withRange: 0.5),
+          SKAction.wait(forDuration: 0.25, withRange: 0.5),
           SKAction.group([
-            SKAction.fadeInWithDuration(0.25),
-            SKAction.scaleTo(1.0, duration: 0.25)
+            SKAction.fadeIn(withDuration: 0.25),
+            SKAction.scale(to: 1.0, duration: 0.25)
             ])
           ]))
     }
@@ -159,7 +159,10 @@ class GameScene: SKScene {
 
         // The tiles are named from 0 to 15, according to the bitmask that is
         // made by combining these four values.
-        let value = Int(topLeft) | Int(topRight) << 1 | Int(bottomLeft) << 2 | Int(bottomRight) << 3
+        let value = Int(topLeft.hashValue) |
+                    Int(topRight.hashValue) << 1 |
+                    Int(bottomLeft.hashValue) << 2 |
+                    Int(bottomRight.hashValue) << 3
 
         // Values 0 (no tiles), 6 and 9 (two opposite tiles) are not drawn.
         if value != 0 && value != 6 && value != 9 {
@@ -178,14 +181,14 @@ class GameScene: SKScene {
   // MARK: Conversion Routines
 
   // Converts a column,row pair into a CGPoint that is relative to the cookieLayer.
-  func pointForColumn(column: Int, row: Int) -> CGPoint {
+  func pointForColumn(_ column: Int, row: Int) -> CGPoint {
     return CGPoint(
             x: CGFloat(column)*TileWidth + TileWidth/2,
             y: CGFloat(row)*TileHeight + TileHeight/2)
   }
 
   // Converts a point relative to the cookieLayer into column and row numbers.
-  func convertPoint(point: CGPoint) -> (success: Bool, column: Int, row: Int) {
+  func convertPoint(_ point: CGPoint) -> (success: Bool, column: Int, row: Int) {
     // Is this a valid location within the cookies layer? If yes,
     // calculate the corresponding row and column numbers.
     if point.x >= 0 && point.x < CGFloat(NumColumns)*TileWidth &&
@@ -198,10 +201,10 @@ class GameScene: SKScene {
 
   // MARK: Detecting Swipes
     
-  override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     // Convert the touch location to a point relative to the cookiesLayer.
     let touch = touches.first
-    let location = touch!.locationInNode(cookiesLayer)
+    let location = touch!.location(in: cookiesLayer)
 
     // If the touch is inside a square, then this might be the start of a
     // swipe motion.
@@ -220,14 +223,14 @@ class GameScene: SKScene {
     }
   }
 
-  override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+  override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     // If swipeFromColumn is nil then either the swipe began outside
     // the valid area or the game has already swapped the cookies and we need
     // to ignore the rest of the motion.
     if swipeFromColumn == nil { return }
 
     let touch = touches.first
-    let location = touch!.locationInNode(cookiesLayer)
+    let location = touch!.location(in: cookiesLayer)
 
     let (success, column, row) = convertPoint(location)
     if success {
@@ -260,7 +263,7 @@ class GameScene: SKScene {
   // chain of events: 1) swap the cookies, 2) remove the matching lines, 3)
   // drop new cookies into the screen, 4) check if they create new matches,
   // and so on.
-  func trySwapHorizontal(horzDelta: Int, vertical vertDelta: Int) {
+  func trySwapHorizontal(_ horzDelta: Int, vertical vertDelta: Int) {
     let toColumn = swipeFromColumn! + horzDelta
     let toRow = swipeFromRow! + vertDelta
 
@@ -281,7 +284,7 @@ class GameScene: SKScene {
     }
   }
 
-  override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+  override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     // Remove the selection indicator with a fade-out. We only need to do this
     // when the player didn't actually swipe.
     if selectionSprite.parent != nil && swipeFromColumn != nil {
@@ -294,13 +297,13 @@ class GameScene: SKScene {
     swipeFromRow = nil
   }
 
-  override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
-    touchesEnded(touches!, withEvent: event)
+  override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+    touchesEnded(touches, with: event)
   }
 
   // MARK: Animations
 
-  func animateSwap(swap: Swap, completion: () -> ()) {
+  func animateSwap(_ swap: Swap, completion: @escaping () -> ()) {
     let spriteA = swap.cookieA.sprite!
     let spriteB = swap.cookieB.sprite!
 
@@ -308,41 +311,41 @@ class GameScene: SKScene {
     spriteA.zPosition = 100
     spriteB.zPosition = 90
 
-    let Duration: NSTimeInterval = 0.3
+    let Duration: TimeInterval = 0.3
 
-    let moveA = SKAction.moveTo(spriteB.position, duration: Duration)
-    moveA.timingMode = .EaseOut
-    spriteA.runAction(moveA, completion: completion)
+    let moveA = SKAction.move(to: spriteB.position, duration: Duration)
+    moveA.timingMode = .easeOut
+    spriteA.run(moveA, completion: completion)
 
-    let moveB = SKAction.moveTo(spriteA.position, duration: Duration)
-    moveB.timingMode = .EaseOut
-    spriteB.runAction(moveB)
+    let moveB = SKAction.move(to: spriteA.position, duration: Duration)
+    moveB.timingMode = .easeOut
+    spriteB.run(moveB)
 
-    runAction(swapSound)
+    run(swapSound)
   }
 
-  func animateInvalidSwap(swap: Swap, completion: () -> ()) {
+  func animateInvalidSwap(_ swap: Swap, completion: @escaping () -> ()) {
     let spriteA = swap.cookieA.sprite!
     let spriteB = swap.cookieB.sprite!
 
     spriteA.zPosition = 100
     spriteB.zPosition = 90
 
-    let Duration: NSTimeInterval = 0.2
+    let Duration: TimeInterval = 0.2
 
-    let moveA = SKAction.moveTo(spriteB.position, duration: Duration)
-    moveA.timingMode = .EaseOut
+    let moveA = SKAction.move(to: spriteB.position, duration: Duration)
+    moveA.timingMode = .easeOut
 
-    let moveB = SKAction.moveTo(spriteA.position, duration: Duration)
-    moveB.timingMode = .EaseOut
+    let moveB = SKAction.move(to: spriteA.position, duration: Duration)
+    moveB.timingMode = .easeOut
 
-    spriteA.runAction(SKAction.sequence([moveA, moveB]), completion: completion)
-    spriteB.runAction(SKAction.sequence([moveB, moveA]))
+    spriteA.run(SKAction.sequence([moveA, moveB]), completion: completion)
+    spriteB.run(SKAction.sequence([moveB, moveA]))
 
-    runAction(invalidSwapSound)
+    run(invalidSwapSound)
   }
 
-  func animateMatchedCookies(chains: Set<Chain>, completion: () -> ()) {
+  func animateMatchedCookies(_ chains: Set<Chain>, completion: @escaping () -> ()) {
     for chain in chains {
       animateScoreForChain(chain)
       for cookie in chain.cookies {
@@ -351,23 +354,23 @@ class GameScene: SKScene {
         // (L-shape or T-shape match). In that case, its sprite should only be
         // removed once.
         if let sprite = cookie.sprite {
-          if sprite.actionForKey("removing") == nil {
-            let scaleAction = SKAction.scaleTo(0.1, duration: 0.3)
-            scaleAction.timingMode = .EaseOut
-            sprite.runAction(SKAction.sequence([scaleAction, SKAction.removeFromParent()]),
+          if sprite.action(forKey: "removing") == nil {
+            let scaleAction = SKAction.scale(to: 0.1, duration: 0.3)
+            scaleAction.timingMode = .easeOut
+            sprite.run(SKAction.sequence([scaleAction, SKAction.removeFromParent()]),
                              withKey:"removing")
           }
         }
       }
     }
 
-    runAction(matchSound)
+    run(matchSound)
 
     // Continue with the game after the animations have completed.
-    runAction(SKAction.waitForDuration(0.3), completion: completion)
+    run(SKAction.wait(forDuration: 0.3), completion: completion)
   }
 
-  func animateScoreForChain(chain: Chain) {
+  func animateScoreForChain(_ chain: Chain) {
     // Figure out what the midpoint of the chain is.
     let firstSprite = chain.firstCookie().sprite!
     let lastSprite = chain.lastCookie().sprite!
@@ -383,46 +386,46 @@ class GameScene: SKScene {
     scoreLabel.zPosition = 300
     cookiesLayer.addChild(scoreLabel)
 
-    let moveAction = SKAction.moveBy(CGVector(dx: 0, dy: 3), duration: 0.7)
-    moveAction.timingMode = .EaseOut
-    scoreLabel.runAction(SKAction.sequence([moveAction, SKAction.removeFromParent()]))
+    let moveAction = SKAction.move(by: CGVector(dx: 0, dy: 3), duration: 0.7)
+    moveAction.timingMode = .easeOut
+    scoreLabel.run(SKAction.sequence([moveAction, SKAction.removeFromParent()]))
   }
 
-  func animateFallingCookies(columns: [[Cookie]], completion: () -> ()) {
-    var longestDuration: NSTimeInterval = 0
+  func animateFallingCookies(_ columns: [[Cookie]], completion: @escaping () -> ()) {
+    var longestDuration: TimeInterval = 0
     for array in columns {
-      for (idx, cookie) in array.enumerate() {
+      for (idx, cookie) in array.enumerated() {
         let newPosition = pointForColumn(cookie.column, row: cookie.row)
 
         // The further away from the hole you are, the bigger the delay
         // on the animation.
-        let delay = 0.05 + 0.15*NSTimeInterval(idx)
+        let delay = 0.05 + 0.15*TimeInterval(idx)
 
         let sprite = cookie.sprite!   // sprite always exists at this point
 
         // Calculate duration based on far cookie has to fall (0.1 seconds
         // per tile).
-        let duration = NSTimeInterval(((sprite.position.y - newPosition.y) / TileHeight) * 0.1)
+        let duration = TimeInterval(((sprite.position.y - newPosition.y) / TileHeight) * 0.1)
         longestDuration = max(longestDuration, duration + delay)
 
-        let moveAction = SKAction.moveTo(newPosition, duration: duration)
-        moveAction.timingMode = .EaseOut
-        sprite.runAction(
+        let moveAction = SKAction.move(to: newPosition, duration: duration)
+        moveAction.timingMode = .easeOut
+        sprite.run(
           SKAction.sequence([
-            SKAction.waitForDuration(delay),
+            SKAction.wait(forDuration: delay),
             SKAction.group([moveAction, fallingCookieSound])]))
         }
     }
 
     // Wait until all the cookies have fallen down before we continue.
-    runAction(SKAction.waitForDuration(longestDuration), completion: completion)
+    run(SKAction.wait(forDuration: longestDuration), completion: completion)
   }
 
-  func animateNewCookies(columns: [[Cookie]], completion: () -> ()) {
+  func animateNewCookies(_ columns: [[Cookie]], completion: @escaping () -> ()) {
     // We don't want to continue with the game until all the animations are
     // complete, so we calculate how long the longest animation lasts, and
     // wait that amount before we trigger the completion block.
-    var longestDuration: NSTimeInterval = 0
+    var longestDuration: TimeInterval = 0
 
     for array in columns {
 
@@ -431,7 +434,7 @@ class GameScene: SKScene {
       // in the array, which is always the top-most one for this column.
       let startRow = array[0].row + 1
 
-      for (idx, cookie) in array.enumerate() {
+      for (idx, cookie) in array.enumerated() {
 
         // Create a new sprite for the cookie.
         let sprite = SKSpriteNode(imageNamed: cookie.cookieType.spriteName)
@@ -441,23 +444,23 @@ class GameScene: SKScene {
 
         // Give each cookie that's higher up a longer delay, so they appear to
         // fall after one another.
-        let delay = 0.1 + 0.2 * NSTimeInterval(array.count - idx - 1)
+        let delay = 0.1 + 0.2 * TimeInterval(array.count - idx - 1)
 
         // Calculate duration based on far the cookie has to fall.
-        let duration = NSTimeInterval(startRow - cookie.row) * 0.1
+        let duration = TimeInterval(startRow - cookie.row) * 0.1
         longestDuration = max(longestDuration, duration + delay)
 
         // Animate the sprite falling down. Also fade it in to make the sprite
         // appear less abruptly.
         let newPosition = pointForColumn(cookie.column, row: cookie.row)
-        let moveAction = SKAction.moveTo(newPosition, duration: duration)
-        moveAction.timingMode = .EaseOut
+        let moveAction = SKAction.move(to: newPosition, duration: duration)
+        moveAction.timingMode = .easeOut
         sprite.alpha = 0
-        sprite.runAction(
+        sprite.run(
           SKAction.sequence([
-            SKAction.waitForDuration(delay),
+            SKAction.wait(forDuration: delay),
             SKAction.group([
-              SKAction.fadeInWithDuration(0.05),
+              SKAction.fadeIn(withDuration: 0.05),
               moveAction,
               addCookieSound])
             ]))
@@ -465,26 +468,26 @@ class GameScene: SKScene {
     }
 
     // Wait until the animations are done before we continue.
-    runAction(SKAction.waitForDuration(longestDuration), completion: completion)
+    run(SKAction.wait(forDuration: longestDuration), completion: completion)
   }
 
-  func animateGameOver(completion: () -> ()) {
-    let action = SKAction.moveBy(CGVector(dx: 0, dy: -size.height), duration: 0.3)
-    action.timingMode = .EaseIn
-    gameLayer.runAction(action, completion: completion)
+  func animateGameOver(_ completion: @escaping () -> ()) {
+    let action = SKAction.move(by: CGVector(dx: 0, dy: -size.height), duration: 0.3)
+    action.timingMode = .easeIn
+    gameLayer.run(action, completion: completion)
   }
 
-  func animateBeginLevel(completion: () -> ()) {
-    gameLayer.hidden = false
+  func animateBeginLevel(_ completion: @escaping () -> ()) {
+    gameLayer.isHidden = false
     gameLayer.position = CGPoint(x: 0, y: size.height)
-    let action = SKAction.moveBy(CGVector(dx: 0, dy: -size.height), duration: 0.3)
-    action.timingMode = .EaseOut
-    gameLayer.runAction(action, completion: completion)
+    let action = SKAction.move(by: CGVector(dx: 0, dy: -size.height), duration: 0.3)
+    action.timingMode = .easeOut
+    gameLayer.run(action, completion: completion)
   }
 
   // MARK: Selection Indicator
 
-  func showSelectionIndicatorForCookie(cookie: Cookie) {
+  func showSelectionIndicatorForCookie(_ cookie: Cookie) {
     // If the selection indicator is still visible, then first remove it.
     if selectionSprite.parent != nil {
       selectionSprite.removeFromParent()
@@ -496,7 +499,7 @@ class GameScene: SKScene {
     if let sprite = cookie.sprite {
       let texture = SKTexture(imageNamed: cookie.cookieType.highlightedSpriteName)
       selectionSprite.size = texture.size()
-      selectionSprite.runAction(SKAction.setTexture(texture))
+      selectionSprite.run(SKAction.setTexture(texture))
 
       sprite.addChild(selectionSprite)
       selectionSprite.alpha = 1.0
@@ -504,8 +507,8 @@ class GameScene: SKScene {
   }
 
   func hideSelectionIndicator() {
-    selectionSprite.runAction(SKAction.sequence([
-      SKAction.fadeOutWithDuration(0.3),
+    selectionSprite.run(SKAction.sequence([
+      SKAction.fadeOut(withDuration: 0.3),
       SKAction.removeFromParent()]))
   }
 }

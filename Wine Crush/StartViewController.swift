@@ -23,16 +23,16 @@ class StartViewController: UIViewController {
     super.didReceiveMemoryWarning()
   }
   
-  @IBAction func playGameButtonPressed(sender: UIButton) {
+  @IBAction func playGameButtonPressed(_ sender: UIButton) {
     switchingViewController.switchViews()
   }
   
-  @IBAction func aboutButtonPressed(sender: UIButton) {
-    performSegueWithIdentifier("AboutSegue", sender: self)
+  @IBAction func aboutButtonPressed(_ sender: UIButton) {
+    performSegue(withIdentifier: "AboutSegue", sender: self)
   }
   
-  @IBAction func visitWebsiteButtonPressed(sender: UIButton) {
-    UIApplication.sharedApplication().openURL(NSURL(string: "http://www.aspirationswinery.com/")!)
+  @IBAction func visitWebsiteButtonPressed(_ sender: UIButton) {
+    UIApplication.shared.openURL(URL(string: "http://www.aspirationswinery.com/")!)
   }
   
 }

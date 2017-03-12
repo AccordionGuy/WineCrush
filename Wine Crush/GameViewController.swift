@@ -49,9 +49,9 @@ class GameViewController: UIViewController {
   var tapGestureRecognizer: UITapGestureRecognizer!
 
   lazy var backgroundMusic: AVAudioPlayer! = {
-    let url = NSBundle.mainBundle().URLForResource("Mining by Moonlight", withExtension: "mp3")
+    let url = Bundle.main.url(forResource: "Mining by Moonlight", withExtension: "mp3")
     do {
-      let player = try AVAudioPlayer(contentsOfURL: url!)
+      let player = try AVAudioPlayer(contentsOf: url!)
       player.numberOfLoops = -1
       return player
       
@@ -61,16 +61,16 @@ class GameViewController: UIViewController {
     }
   }()
 
-  override func prefersStatusBarHidden() -> Bool {
+  override var prefersStatusBarHidden : Bool {
     return true
   }
 
-  override func shouldAutorotate() -> Bool {
+  override var shouldAutorotate : Bool {
     return true
   }
 
-  override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-    return UIInterfaceOrientationMask.AllButUpsideDown
+  override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+    return UIInterfaceOrientationMask.allButUpsideDown
   }
 
   override func viewDidLoad() {
@@ -78,11 +78,11 @@ class GameViewController: UIViewController {
 
     // Configure the view.
     let skView = view as! SKView
-    skView.multipleTouchEnabled = false
+    skView.isMultipleTouchEnabled = false
     
     // Create and configure the scene.
     scene = GameScene(size: skView.bounds.size)
-    scene.scaleMode = .AspectFill
+    scene.scaleMode = .aspectFill
     
     // Present the scene.
     skView.presentScene(scene)
@@ -94,8 +94,8 @@ class GameViewController: UIViewController {
 //    noticePanel.hidden = true
     hideNoticeView()
     
-    shuffleButton.enabled = false
-    hintButton.enabled = false
+    shuffleButton.isEnabled = false
+    hintButton.isEnabled = false
     
     // Load and start background music.
     backgroundMusic.currentTime = 0.0
@@ -110,7 +110,7 @@ class GameViewController: UIViewController {
 
   func beginLevel() {
     
-    scene.runAction(SKAction.waitForDuration(2.0))
+    scene.run(SKAction.wait(forDuration: 2.0))
     
     // Load the level.
     levelScore = 0
@@ -142,10 +142,10 @@ class GameViewController: UIViewController {
       self.scene.addTiles()
       self.scene.swipeHandler = self.handleSwipe
       self.scene.animateBeginLevel() {
-        self.shuffleButton.enabled = true
-        self.hintButton.enabled = true
-        self.quitButton.enabled = true
-        self.view.userInteractionEnabled = true
+        self.shuffleButton.isEnabled = true
+        self.hintButton.isEnabled = true
+        self.quitButton.isEnabled = true
+        self.view.isUserInteractionEnabled = true
       }
       self.shuffle()
     }
@@ -163,17 +163,17 @@ class GameViewController: UIViewController {
 
   // This is the swipe handler. MyScene invokes this function whenever it
   // detects that the player performs a swipe.
-  func handleSwipe(swap: Swap) {
+  func handleSwipe(_ swap: Swap) {
     // While cookies are being matched and new cookies fall down to fill up
     // the holes, we don't want the player to tap on anything.
-    view.userInteractionEnabled = false
+    view.isUserInteractionEnabled = false
 
     if level.isPossibleSwap(swap) {
       level.performSwap(swap)
       scene.animateSwap(swap, completion: handleMatches)
     } else {
       scene.animateInvalidSwap(swap) {
-        self.view.userInteractionEnabled = true
+        self.view.isUserInteractionEnabled = true
       }
     }
   }
@@ -220,7 +220,7 @@ class GameViewController: UIViewController {
     level.resetComboMultiplier()
     level.detectPossibleSwaps()
     hintGiven = false
-    view.userInteractionEnabled = true
+    view.isUserInteractionEnabled = true
     decrementMoves()
   }
 
@@ -257,7 +257,7 @@ class GameViewController: UIViewController {
     }
   }
 
-  func showEndOfPlay(gameOver gameOver: Bool = false) {
+  func showEndOfPlay(gameOver: Bool = false) {
 //    noticePanel.hidden = false
     let theTitle: String
     let theMessage: String
@@ -270,16 +270,16 @@ class GameViewController: UIViewController {
       theMessage = "Get ready for the next one..."
     }
     showNoticeView(title: theTitle, message: theMessage)
-    view.userInteractionEnabled = false
-    shuffleButton.enabled = false
-    hintButton.enabled = false
-    quitButton.enabled = false
+    view.isUserInteractionEnabled = false
+    shuffleButton.isEnabled = false
+    hintButton.isEnabled = false
+    quitButton.isEnabled = false
     
     scene.tilesLayer.removeAllChildren()
     scene.removeAllCookieSprites()
     
     if gameOver {
-      self.quitButton.enabled = false
+      self.quitButton.isEnabled = false
       self.fadeOutBackgroundMusic()
     }
     
@@ -296,7 +296,7 @@ class GameViewController: UIViewController {
   func fadeOutBackgroundMusic() {
     if backgroundMusic.volume > 0.1 {
       backgroundMusic.volume -= 0.1
-      performSelector(#selector(fadeOutBackgroundMusic), withObject: nil, afterDelay: 0.1)
+      perform(#selector(fadeOutBackgroundMusic), with: nil, afterDelay: 0.1)
     }
     else {
       backgroundMusic.stop()
@@ -306,22 +306,22 @@ class GameViewController: UIViewController {
   func showNoPossibleSwaps() {
 //    noticePanel.hidden = false
     showNoticeView(title: "No Possible Swaps!", message: "Use the Shuffle button.")
-    scene.userInteractionEnabled = false
-    shuffleButton.enabled = false
-    hintButton.enabled = false
+    scene.isUserInteractionEnabled = false
+    shuffleButton.isEnabled = false
+    hintButton.isEnabled = false
     
     delay(3.0) {
 //      self.noticePanel.hidden = true
       self.hideNoticeView()
-      self.scene.userInteractionEnabled = true
-      self.shuffleButton.enabled = true
+      self.scene.isUserInteractionEnabled = true
+      self.shuffleButton.isEnabled = true
     }
   }
   
   func increaseLevel() {
 //    noticePanel.hidden = true
     hideNoticeView()
-    scene.userInteractionEnabled = true
+    scene.isUserInteractionEnabled = true
     
     levelNumber += 1
     beginLevel()
@@ -336,7 +336,7 @@ class GameViewController: UIViewController {
   @IBAction func shuffleButtonPressed(_: AnyObject) {
     shuffle()
     hintGiven = false
-    hintButton.enabled = true
+    hintButton.isEnabled = true
 
     // Pressing the shuffle button costs a move.
     decrementMoves()
@@ -344,9 +344,9 @@ class GameViewController: UIViewController {
   
   @IBAction func hintButtonPressed(_: AnyObject) {
     if let swap = level.hint() {
-      view.userInteractionEnabled = false
+      view.isUserInteractionEnabled = false
       scene.animateInvalidSwap(swap) {
-        self.view.userInteractionEnabled = true
+        self.view.isUserInteractionEnabled = true
         if !self.hintGiven {
           self.gameScore = max(self.gameScore - 10, 0)
           self.levelScore = max(self.levelScore - 10, 0)
@@ -365,13 +365,13 @@ class GameViewController: UIViewController {
     let alertController = UIAlertController(
       title: "Quit the game?",
       message: "Are you sure you want to quit playing?",
-      preferredStyle: .Alert)
+      preferredStyle: .alert)
     let quitAction = UIAlertAction(
       title: "Yes, I'm done playing.",
-      style: .Destructive) { (action: UIAlertAction!) in
-        self.shuffleButton.enabled = false
-        self.hintButton.enabled = false
-        self.quitButton.enabled = false
+      style: .destructive) { (action: UIAlertAction!) in
+        self.shuffleButton.isEnabled = false
+        self.hintButton.isEnabled = false
+        self.quitButton.isEnabled = false
         self.scene.tilesLayer.removeAllChildren()
         self.scene.removeAllCookieSprites()
         self.fadeOutBackgroundMusic()
@@ -379,35 +379,31 @@ class GameViewController: UIViewController {
     }
     let cancelAction = UIAlertAction(
       title: "No, let me keep playing!",
-      style: UIAlertActionStyle.Default) { action in
-        self.view.userInteractionEnabled = true
+      style: UIAlertActionStyle.default) { action in
+        self.view.isUserInteractionEnabled = true
     }
     alertController.addAction(quitAction)
     alertController.addAction(cancelAction)
-    presentViewController(alertController, animated: true, completion: nil)
+    present(alertController, animated: true, completion: nil)
   }
   
-  func showNoticeView(title title: String, message: String) {
+  func showNoticeView(title: String, message: String) {
     noticeTitleLabel.text = title
     noticeMessageLabel.text = message
-    noticeView.hidden = false
+    noticeView.isHidden = false
   }
   
   func hideNoticeView() {
-    noticeView.hidden = true
+    noticeView.isHidden = true
   }
   
 }
 
 
-func delay(delay: Double, closure: ()->()) {
-  dispatch_after(
-    dispatch_time(
-      DISPATCH_TIME_NOW,
-      Int64(delay * Double(NSEC_PER_SEC))
-    ),
-    dispatch_get_main_queue(),
-    closure
+func delay(_ delay: Double, closure: @escaping ()->()) {
+  DispatchQueue.main.asyncAfter(
+    deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC),
+    execute: closure
   )
 }
 

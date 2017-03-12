@@ -8,22 +8,22 @@
 //
 
 import UIKit
-import AVFoundation.AVAudioSession
+import AVFoundation
 
 class SwitchingViewController: UIViewController {
   
-  private var startViewController: StartViewController!
-  private var gameViewController: GameViewController!
+  fileprivate var startViewController: StartViewController!
+  fileprivate var gameViewController: GameViewController!
   
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    gameViewController = storyboard?.instantiateViewControllerWithIdentifier("Game")
+    gameViewController = storyboard?.instantiateViewController(withIdentifier: "Game")
       as! GameViewController
     gameViewController.switchingViewController = self
     
-    startViewController = storyboard?.instantiateViewControllerWithIdentifier("Start")
+    startViewController = storyboard?.instantiateViewController(withIdentifier: "Start")
       as! StartViewController
     startViewController.switchingViewController = self
     startViewController.view.frame = view.frame
@@ -35,7 +35,7 @@ class SwitchingViewController: UIViewController {
     //    - The screen is locked
     //    - The silent switch (ring/silent switch on the iPhone) is set to silent
     try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient,
-                                                     withOptions: .MixWithOthers)
+                                                     with: .mixWithOthers)
   }
 
 //  override func didReceiveMemoryWarning() {
@@ -56,15 +56,15 @@ class SwitchingViewController: UIViewController {
   func switchViewController(from fromViewController: UIViewController?,
                             to toViewController: UIViewController?) {
     if fromViewController != nil {
-      fromViewController!.willMoveToParentViewController(nil)
+      fromViewController!.willMove(toParentViewController: nil)
       fromViewController!.view.removeFromSuperview()
       fromViewController!.removeFromParentViewController()
     }
     
     if toViewController != nil {
       self.addChildViewController(toViewController!)
-      self.view.insertSubview(toViewController!.view, atIndex: 0)
-      toViewController!.didMoveToParentViewController(self)
+      self.view.insertSubview(toViewController!.view, at: 0)
+      toViewController!.didMove(toParentViewController: self)
     }
   }
   
@@ -73,14 +73,14 @@ class SwitchingViewController: UIViewController {
     // Create the new view controller, if required
     if gameViewController?.view.superview == nil {
       if gameViewController == nil {
-        gameViewController = storyboard?.instantiateViewControllerWithIdentifier("Game")
+        gameViewController = storyboard?.instantiateViewController(withIdentifier: "Game")
           as! GameViewController
         gameViewController.switchingViewController = self
       }
     }
     else if startViewController?.view.superview == nil {
       if startViewController == nil {
-        startViewController = storyboard?.instantiateViewControllerWithIdentifier("Start")
+        startViewController = storyboard?.instantiateViewController(withIdentifier: "Start")
           as! StartViewController
         startViewController.switchingViewController = self
       }
@@ -88,7 +88,7 @@ class SwitchingViewController: UIViewController {
     
     UIView.beginAnimations("Flip", context: nil)
     UIView.setAnimationDuration(1.0)
-    UIView.setAnimationCurve(.EaseInOut)
+    UIView.setAnimationCurve(.easeInOut)
     
     // Switch view controllers
     if startViewController != nil &&
@@ -96,7 +96,7 @@ class SwitchingViewController: UIViewController {
       // If the blue view controller exists and its view is the one
       // currently being displayed in the switching view,
       // switch to the yellow view controller.
-      UIView.setAnimationTransition(.CurlUp, forView: view, cache: true)
+      UIView.setAnimationTransition(.curlUp, for: view, cache: true)
       gameViewController.view.frame = view.frame
       switchViewController(from: startViewController, to: gameViewController)
       gameViewController.beginGame()
@@ -105,7 +105,7 @@ class SwitchingViewController: UIViewController {
       // If the yellow view controller exists and its view is the one
       // currently being displayed in the switching view,
       // switch to the blue view controller.
-      UIView.setAnimationTransition(.CurlDown, forView: view, cache: true)
+      UIView.setAnimationTransition(.curlDown, for: view, cache: true)
       startViewController.view.frame = view.frame
       switchViewController(from: gameViewController, to: startViewController)
     }

@@ -19,26 +19,26 @@ class AboutViewController: UIViewController, UIWebViewDelegate {
   }
   
   func loadWebView() {
-    if let htmlFile = NSBundle.mainBundle().pathForResource("about", ofType: "html") {
-      if let htmlData = NSData(contentsOfFile: htmlFile) {
-        let baseURL = NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath)
-        aboutWebView.loadData(htmlData,
-                              MIMEType: "text/html",
+    if let htmlFile = Bundle.main.path(forResource: "about", ofType: "html") {
+      if let htmlData = try? Data(contentsOf: URL(fileURLWithPath: htmlFile)) {
+        let baseURL = URL(fileURLWithPath: Bundle.main.bundlePath)
+        aboutWebView.load(htmlData,
+                              mimeType: "text/html",
                               textEncodingName: "UTF-8",
                               baseURL: baseURL)
       }
     }
   }
   
-  @IBAction func backButtonPressed(sender: UIButton) {
-    dismissViewControllerAnimated(true, completion: nil)
+  @IBAction func backButtonPressed(_ sender: UIButton) {
+    dismiss(animated: true, completion: nil)
   }
 
-  func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-    let url: NSURL = request.URL!
+  func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    let url: URL = request.url!
     let isExternalLink: Bool = url.scheme == "http" || url.scheme == "https" || url.scheme == "mailto" || url.scheme == "tel"
-    if (isExternalLink && navigationType == UIWebViewNavigationType.LinkClicked) {
-      return !UIApplication.sharedApplication().openURL(request.URL!)
+    if (isExternalLink && navigationType == UIWebViewNavigationType.linkClicked) {
+      return !UIApplication.shared.openURL(request.url!)
     } else {
       return true
     }

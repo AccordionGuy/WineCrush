@@ -12,8 +12,8 @@ class Chain: Hashable, CustomStringConvertible {
   var cookies = [Cookie]()
 
   enum ChainType: CustomStringConvertible {
-    case Horizontal
-    case Vertical
+    case horizontal
+    case vertical
 
     // Note: add any other shapes you want to detect to this list.
     //case ChainTypeLShape
@@ -21,8 +21,8 @@ class Chain: Hashable, CustomStringConvertible {
 
     var description: String {
       switch self {
-      case .Horizontal: return "Horizontal"
-      case .Vertical: return "Vertical"
+      case .horizontal: return "Horizontal"
+      case .vertical: return "Vertical"
       }
     }
   }
@@ -37,7 +37,7 @@ class Chain: Hashable, CustomStringConvertible {
     self.chainType = chainType
   }
 
-  func addCookie(cookie: Cookie) {
+  func addCookie(_ cookie: Cookie) {
     cookies.append(cookie)
   }
 

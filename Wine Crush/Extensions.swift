@@ -12,22 +12,22 @@ import Foundation
 extension Dictionary {
 
   // Loads a JSON file from the app bundle into a new dictionary
-  static func loadJSONFromBundle(filename: String) -> Dictionary<String, AnyObject>? {
-    if let path = NSBundle.mainBundle().pathForResource(filename, ofType: "json") {
+  static func loadJSONFromBundle(_ filename: String) -> Dictionary<String, AnyObject>? {
+    if let path = Bundle.main.path(forResource: filename, ofType: "json") {
 
       var error: NSError?
-      let data: NSData?
+      let data: Data?
       do {
-        data = try NSData(contentsOfFile: path, options: NSDataReadingOptions())
+        data = try Data(contentsOf: URL(fileURLWithPath: path), options: NSData.ReadingOptions())
       } catch let error1 as NSError {
         error = error1
         data = nil
       }
       if let data = data {
 
-        let dictionary: AnyObject?
+        let dictionary: Any?
         do {
-          dictionary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions())
+          dictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
         } catch let error1 as NSError {
           error = error1
           dictionary = nil

@@ -33,7 +33,7 @@ class Cookie: CustomStringConvertible, Hashable {
 }
 
 enum CookieType: Int, CustomStringConvertible {
-  case Unknown = 0, RedGlass, WhiteBottle, Grapes, Cheese, Cork, WhiteGlass
+  case unknown = 0, redGlass, whiteBottle, grapes, cheese, cork, whiteGlass
 
   var spriteName: String {
     let spriteNames = [
